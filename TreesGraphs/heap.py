@@ -38,17 +38,6 @@ class MinHeap:
             self.heap[smaller_idx], self.heap[i] = self.heap[i], self.heap[smaller_idx]
             i = smaller_idx
 
-
-# Heapifies an entire array
-def heapify(A):
-    for i in range(len(A)):
-        if (2*i+1) < len(A):
-            smaller_idx = 2*i+1
-            if (2*i+2) < len(A) and A[2*i+2] < A[2*i+1]:
-                smaller_idx = 2*i+2
-            if A[smaller_idx] < A[i]:
-                A[smaller_idx], A[i] = A[i], A[smaller_idx]
-
 min_heap = MinHeap()
 min_heap.push(5)
 min_heap.push(3)
@@ -56,7 +45,3 @@ min_heap.push(9)
 min_heap.push(4)
 min_heap.pop()
 print (min_heap.heap)
-
-A = [9, 7, 17, 4, 5, 29, 31, 2, 10]
-heapify(A)
-print (A)
