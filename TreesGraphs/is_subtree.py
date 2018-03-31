@@ -19,6 +19,27 @@ def contains_sublist(lst, sublst):
     n = len(sublst)
     return any((sublst == lst[i:i+n]) for i in range(len(lst)-n+1))
 
+def is_subtree_optimal(t1, t2):
+    def is_subtree_helper(t1, t2):
+        if not t1:
+            return False
+        elif t1.data == t2.data and match_tree(t1, t2):
+            return True
+        return is_subtree_helper(t1.left, t2) or is_subtree_helper(t1.right, t2)
+    if not t2:
+        return True
+    return is_subtree_helper(t1, t2)
+
+def match_tree(t1, t2):
+    if not t1 and not t2:
+        return True
+    elif not t1 or not t2:
+        return False
+    elif t1.data != t2.data:
+        return False
+    else:
+        return match_tree(t1.left, t2.left) and match_tree(t1.right, t2.right)
+
 class BinaryTreeNode:
     def __init__(self, data=None, left=None, right=None):
         self.data = data
@@ -43,3 +64,4 @@ root.right.left.right.right = BinaryTreeNode(257)
 root.right.left.right.left.right = BinaryTreeNode(641)
 
 print (is_subtree(root, root.left.right))
+print (is_subtree_optimal(root, root.left.right))
