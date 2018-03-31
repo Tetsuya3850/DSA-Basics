@@ -1,28 +1,32 @@
-from collections import defaultdict, deque
+from collections import defaultdict, deque, Counter
+
+class Vertex:
+    def __init__(self, name):
+        self.name = name
+        self.adjacent = []
+
+    def addEdge(self, vertex):
+        self.adjacent.append(vertex)
 
 class Graph:
     def __init__(self):
-        self.graph = defaultdict(list)
-        self.nodes = set()
+        self.vertexes = []
 
-    def addEdge(self, u, v):
-        self.graph[u].append(v)
-        self.nodes.add(u)
-        self.nodes.add(v)
+    def addVertex(self, vertex):
+        self.vertexes.append(vertex)
 
     def path_BFS(self, start, end):
         visited = set()
         visited.add(start)
         queue = deque()
-        queue.append((start, [start]))
-
+        queue.append((start, [start.name]))
         while queue:
             vertex, path = queue.popleft()
-            for neighbour in self.graph[vertex]:
+            for neighbour in vertex.adjacent:
                 if neighbour not in visited:
                     if neighbour == end:
-                        return path + [neighbour]
-                    queue.append((neighbour, path + [neighbour]))
+                        return path + [neighbour.name]
+                    queue.append((neighbour, path + [neighbour.name]))
                     visited.add(neighbour)
 
     def has_path_DFS(self, start, end):
@@ -30,7 +34,7 @@ class Graph:
             visited.add(start)
             if start == end:
                 return True
-            for neighbour in self.graph[start]:
+            for neighbour in start.adjacent:
                 if neighbour not in visited:
                     if has_path_DFS_helper(neighbour, end):
                         return True
@@ -43,7 +47,7 @@ class Graph:
         def isCyclicUtil(v):
             visited.add(v)
             currRec.add(v)
-            for neighbour in self.graph[v]:
+            for neighbour in v.adjacent:
                 if not neighbour in visited:
                     if isCyclicUtil(neighbour):
                         return True
@@ -54,33 +58,64 @@ class Graph:
 
         visited = set()
         currRec = set()
-        for node in self.nodes:
-            if node not in visited:
-                if isCyclicUtil(node):
+        for vertex in self.vertexes:
+            if vertex not in visited:
+                if isCyclicUtil(vertex):
                     return True
         return False
 
     def toplogical_sort(self):
-        def toplogical_sort_util(node):
-            visited.add(node)
-            for neighbour in self.graph[node]:
+        def inbound_count():
+            c = Counter()
+            for vertex in self.vertexes:
+                c[vertex] = 0
+            for vertex in self.vertexes:
+                for neighbour in vertex.adjacent:
+                    c[neighbour] += 1
+            return c
+
+        def add_non_dependent():
+            add = []
+            for key, value in inbound_counter.items():
+                if value == 0:
+                    add.append(key)
+            for vertex in add:
+                del inbound_counter[vertex]
+            process_next.extend(add)
+
+        order = []
+        process_next = deque()
+        inbound_counter = inbound_count()
+        add_non_dependent()
+        while process_next:
+            vertex = process_next.popleft()
+            for neighbour in vertex.adjacent:
+                inbound_counter[neighbour] -= 1
+            order.append(vertex.name)
+            add_non_dependent()
+        return order if len(order) == len(self.vertexes) else 'Cycle!'
+
+    def toplogical_sort_alternative(self):
+        def toplogical_sort_util(v):
+            visited.add(v)
+            for neighbour in v.adjacent:
                 if neighbour not in visited:
                     toplogical_sort_util(neighbour)
-            stack.append(node)
+            stack.append(v.name)
 
         if self.isCyclic():
             return False
         visited = set()
         stack = []
-        for node in self.nodes:
-            if node not in visited:
-                toplogical_sort_util(node)
+        for vertex in self.vertexes:
+            if vertex not in visited:
+                toplogical_sort_util(vertex)
         return stack[::-1]
 
     def has_path_BFS_bidirectional(self, start, end):
         def BFS_once(queue, visited):
             vertex = queue.popleft()
-            for neighbour in self.graph[vertex]:
+            for neighbour in vertex.adjacent:
                 if neighbour not in visited:
                     queue.append(neighbour)
                     visited.add(neighbour)
@@ -93,7 +128,6 @@ class Graph:
         queue_2 = deque()
         queue_1.append(start)
         queue_2.append(end)
-
         while queue_1 and queue_2:
             BFS_once(queue_1, visited_1)
             BFS_once(queue_2, visited_2)
@@ -102,15 +136,28 @@ class Graph:
         return False
 
 g = Graph()
-g.addEdge('A', 'B')
-g.addEdge('A', 'E')
-g.addEdge('A', 'F')
-g.addEdge('B', 'D')
-g.addEdge('B', 'E')
-g.addEdge('D', 'C')
-g.addEdge('D', 'E')
-print (g.path_BFS('A', 'D'))
-print (g.has_path_DFS('A', 'D'))
+a = Vertex('A')
+b = Vertex('B')
+c = Vertex('C')
+d = Vertex('D')
+e = Vertex('E')
+f = Vertex('F')
+a.addEdge(b)
+a.addEdge(e)
+a.addEdge(f)
+b.addEdge(d)
+b.addEdge(e)
+d.addEdge(c)
+d.addEdge(e)
+g.addVertex(a)
+g.addVertex(b)
+g.addVertex(c)
+g.addVertex(d)
+g.addVertex(e)
+g.addVertex(f)
+print (g.path_BFS(a, d))
+print (g.has_path_DFS(a, d))
 print (g.isCyclic())
 print (g.toplogical_sort())
-print (g.has_path_BFS_bidirectional('A', 'D'))
+print (g.toplogical_sort_alternative())
+print (g.has_path_BFS_bidirectional(a, d))
