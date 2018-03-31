@@ -1,4 +1,4 @@
-# Write code to partition a linked list around a value x.
+# Partition a linked list around a value x.
 
 class Node:
     def __init__(self, data=0, next_node=None):
