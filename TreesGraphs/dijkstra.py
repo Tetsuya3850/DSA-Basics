@@ -1,7 +1,7 @@
 from collections import defaultdict
 from heapq import heappush, heappop
 
-class Vertex:
+class WeightedVertex:
     def __init__(self, name):
         self.name = name
         self.adjacent = []
@@ -34,15 +34,15 @@ class WeightedGraph:
         return path_dist
 
 gr = WeightedGraph()
-a = Vertex('A')
-b = Vertex('B')
-c = Vertex('C')
-d = Vertex('D')
-e = Vertex('E')
-f = Vertex('F')
-g = Vertex('G')
-h = Vertex('H')
-i = Vertex('I')
+a = WeightedVertex('A')
+b = WeightedVertex('B')
+c = WeightedVertex('C')
+d = WeightedVertex('D')
+e = WeightedVertex('E')
+f = WeightedVertex('F')
+g = WeightedVertex('G')
+h = WeightedVertex('H')
+i = WeightedVertex('I')
 a.addEdge(b, 4)
 a.addEdge(h, 8)
 b.addEdge(c, 8)
