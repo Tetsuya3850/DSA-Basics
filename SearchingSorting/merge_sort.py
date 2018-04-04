@@ -1,3 +1,4 @@
+# Time complexity O(NlogN) Space complexity O(N)
 def merge_sort(A):
     def merge(A, l, m, r):
         n1 = m - l + 1

@@ -1,3 +1,4 @@
+# Time complexity O(N2) Space complexity O(1)
 def selection_sort(A):
     for i in range(len(A)):
         min_idx = i

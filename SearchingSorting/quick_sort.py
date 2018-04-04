@@ -1,3 +1,4 @@
+# Time complexity O(NlogN) Space complexity O(logN)
 def quick_sort(A):
     def quick_sort_helper(A, l, r):
         if l < r:

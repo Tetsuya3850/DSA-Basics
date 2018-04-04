@@ -1,3 +1,4 @@
+# Time complexity O(N2) Space complexity O(1)
 def bubble_sort(A):
     is_sorted = False
     last_unsorted = len(A) - 1

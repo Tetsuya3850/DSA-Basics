@@ -1,5 +1,6 @@
 # Given two sorted array of integers, compute the pair of values with the samallest difference.
 
+# Time complexity O(AlogA + BlogB) Space complexity O(1)
 def smallest_difference(A1, A2):
     i, j = 0, 0
     shortest = float('inf')

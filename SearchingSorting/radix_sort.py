@@ -1,3 +1,4 @@
+# Time complexity O(kN) Space complexity O(1)
 def radix_sort(A):
     def counting_sort_radix(A, exp):
         count_table = [0] * 10
