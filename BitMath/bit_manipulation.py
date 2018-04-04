@@ -47,6 +47,10 @@ def clear_leftmost_bit(n):
 print (clear_leftmost_bit(64))
 
 
+def toggle_bit(n, i):
+    return n ^ (1 << i)
+print (toggle_bit(4, 2))
+
 
 def update_bit(n, i, bit):
     n = clear_bit(n, i)
@@ -62,3 +66,21 @@ print (swap_odd_even_bits(10))
 def flip_bits(x):
     return x ^ ~0
 print (flip_bits(7))
+
+
+def multiply_twoK(n, k):
+    return n << k
+print (multiply_twoK(4, 2))
+
+
+def divide_twoK(n, k):
+    return n >> k
+print (divide_twoK(4, 2))
+
+
+def swap_values(a, b):
+    convert = a ^ b
+    a ^= convert
+    b ^= convert
+    return a, b
+print (swap_values(4, 9))
