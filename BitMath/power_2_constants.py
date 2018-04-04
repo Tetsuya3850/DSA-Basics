@@ -1,0 +1,19 @@
+
+
+2 ** 13 bits = 1KB
+
+2 ** 23 bits = 1MB
+
+2 ** 33 bits = 1GB
+
+2 ** 43 bits = 1TB
+
+2 ** 10 = thousand
+
+2 ** 20 = million
+
+2 ** 30 = billion
+
+2 ** 40 = trillion
+
+Map every 32bit integer to a bit vector = 0.5GB

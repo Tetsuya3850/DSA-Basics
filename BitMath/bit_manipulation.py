@@ -1,21 +1,37 @@
 
+def get_bit(n, i):
+    return n & (1 << i)
+print (get_bit(9, 0))
+
+
+
+def set_bit(n, i):
+    return n | (1 << i)
+print (set_bit(8, 0))
+
+
 # Insert p ones on the right
 def set_right(n, p):
     return n | ((1 << p) - 1)
-
 print (set_right(128, 2))
 
-# Clear bits from the right of p.
-def clear_right(n, p):
-    return n & -((1 << p) - 1)
 
-print (clear_right(130, 7))
+# Clear bits from the most siginificant bit to i.
+def clear_left(n, i):
+    return n & ((1 << i) - 1)
+print (clear_left(130, 7))
 
 
-def clear_leftmost_bit(n):
-    return n & (n-1)
+# Clear bits from the i to least significant bit.
+def clear_right(n, i):
+    return n & (-1 << (i + 1))
+print (clear_right(130, 6))
 
-print (clear_leftmost_bit(64))
+
+def clear_bit(n, i):
+    return n & ~(1 << i)
+print (clear_bit(9, 0))
+
 
 # Clear the bits j through i in N.
 def clear_i_j(n, i, j):
@@ -23,10 +39,26 @@ def clear_i_j(n, i, j):
     lower_mask = (1 << i) - 1
     mask = upper_mask | lower_mask
     return n & mask
-
 print (clear_i_j(86, 1, 4))
+
+
+def clear_leftmost_bit(n):
+    return n & (n-1)
+print (clear_leftmost_bit(64))
+
+
+
+def update_bit(n, i, bit):
+    n = clear_bit(n, i)
+    return n | (bit << i)
+print (update_bit(128, 1, 1))
+
 
 def swap_odd_even_bits(n):
     return ((n & 0xaaaaaaaa) >> 1) | ((n & 0x55555555) << 1)
-
 print (swap_odd_even_bits(10))
+
+
+def flip_bits(x):
+    return x ^ ~0
+print (flip_bits(7))
