@@ -22,12 +22,7 @@ def strings_permutation_table(s1, s2):
     return True
 
 def strings_permutation_counter(s1, s2):
-    if len(s1) != len(s2):
-        return False
-    c1 = Counter(s1)
-    c2 = Counter(s2)
-    return not c1 - c2 and not c2 - c1
-
+    return Counter(s1) == Counter(s2)
 
 s1 = 'cracking'
 s2 = 'rkicgacn'
