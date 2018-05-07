@@ -2,6 +2,7 @@
 
 import math
 
+
 def prime_factor(n):
     result = []
 
@@ -19,4 +20,5 @@ def prime_factor(n):
 
     return result
 
-print prime_factor(315)
+
+print(prime_factor(315))
