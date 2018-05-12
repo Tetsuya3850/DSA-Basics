@@ -1,6 +1,8 @@
 # Write a method to return all subsets of a set.
 
 # Time complexity O(N2^N). Space complexity O(N2^N).
+
+
 def all_subsets(A):
     results = []
     results.append([])
@@ -11,7 +13,8 @@ def all_subsets(A):
         results.extend(new_results)
     return results
 
-print (all_subsets(['A', 'B', 'C']))
+
+print(all_subsets(['A', 'B', 'C']))
 
 
 # Time complexity O(N2^N). Space complexity O(N2^N).
@@ -21,13 +24,15 @@ def all_subsets_recursive(A):
             results.append(selected_so_far)
             return
         directed_subset(to_be_selected + 1, selected_so_far)
-        directed_subset(to_be_selected + 1, selected_so_far + [A[to_be_selected]])
+        directed_subset(to_be_selected + 1,
+                        selected_so_far + [A[to_be_selected]])
 
     results = []
     directed_subset(0, [])
     return results
 
-print (all_subsets_recursive(['A', 'B', 'C']))
+
+print(all_subsets_recursive(['A', 'B', 'C']))
 
 
 # Time complexity O(N2^N). Space complexity O(N2^N).
@@ -49,4 +54,19 @@ def all_subsets_bit(A):
         results.append(subset)
     return results
 
-print (all_subsets_bit(['A', 'B', 'C']))
+
+print(all_subsets_bit(['A', 'B', 'C']))
+
+
+def all_subsets_dup(S):
+    res = [[]]
+    S.sort()
+    for i in range(len(S)):
+        if i == 0 or S[i] != S[i - 1]:
+            l = len(res)
+        for j in range(len(res) - l, len(res)):
+            res.append(res[j] + [S[i]])
+    return res
+
+
+print(all_subsets_dup(['A', 'B', 'B']))
