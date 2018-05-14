@@ -8,6 +8,9 @@ class TreeNode:
         self.right = None
 
 
+# Given n, how many structurally unique BST's (binary search trees) that store values 1 ... n?
+
+
 def numTrees(n):
     def helper(n, cache):
         if not n:
@@ -21,6 +24,9 @@ def numTrees(n):
 
     cache = defaultdict()
     return helper(n, cache)
+
+
+# Given an integer n, generate all structurally unique BST's (binary search trees) that store values 1 ... n.
 
 
 def generateTrees(n):
