@@ -3,17 +3,22 @@ class HashNode:
         self.key = key
         self.value = value
 
+
 class HashTable:
     def __init__(self):
         self.table = [None] * 101
 
     def hash(self, key):
+        # Generate hash from key.
+        # Time O(N), Space O(1), where N is the length of key.
         hashed = 0
         for i in range(len(key)):
             hashed = (256 * hashed + ord(key[i])) % 101
         return hashed
 
     def add(self, key, value):
+        # Add key, value.
+        # Time O(1), Space O(1), where N is the num of elements in hashtable.
         bucket = self.hash(key)
         if not self.table[bucket]:
             self.table[bucket] = HashNode(key, value)
@@ -21,6 +26,8 @@ class HashTable:
             self.table[bucket].next = HashNode(key, value)
 
     def find(self, key):
+        # Find value from key.
+        # Time O(1), Space O(1), where N is the num of elements in hashtable.
         bucket = self.hash(key)
         if not self.table[bucket]:
             return False
@@ -33,6 +40,8 @@ class HashTable:
             return False
 
     def delete(self, key):
+        # Delete key, value.
+        # Time O(1), Space O(1), where N is the num of elements in hashtable.
         bucket = self.hash(key)
         if not self.table[bucket]:
             return False
@@ -48,10 +57,11 @@ class HashTable:
                     temp = temp.next
                 return False
 
+
 my_hash = HashTable()
 my_hash.add('apple', '2$')
 my_hash.add('banana', '3$')
-print (my_hash.find('apple'))
-print (my_hash.find('orange'))
+print(my_hash.find('apple'))
+print(my_hash.find('orange'))
 my_hash.delete('banana')
-print (my_hash.find('banana'))
+print(my_hash.find('banana'))
