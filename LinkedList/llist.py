@@ -3,6 +3,7 @@ class Node:
         self.data = data
         self.next = next_node
 
+
 class LinkedList:
     def __init__(self):
         self.head = None
@@ -80,9 +81,24 @@ class LinkedList:
             current = next
         self.head = prev
 
+    def reverse_part(self, m, n):
+        dummy_head = sublist_head = Node(0, self.head)
+
+        for _ in range(m-1):
+            sublist_head = sublist_head.next
+
+        sublist_iter = sublist_head.next
+        for _ in range(n-m):
+            temp = sublist_iter.next
+            sublist_iter.next = temp.next
+            temp.next = sublist_head.next
+            sublist_head.next = temp
+
+        self.head = dummy_head.next
+
     def printall(self):
         temp = self.head
         while temp:
-            print (temp.data, end=" ")
+            print(temp.data, end=" ")
             temp = temp.next
         print()
