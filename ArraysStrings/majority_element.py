@@ -1,12 +1,14 @@
-# Given a positive integers array, find the majority element.
 
 
 def majority_element(A):
+    # Given a positive integers array, find the majority element.
+    # Time O(N), Space O(1), where N is the length of the array.
     candidate_majority_element = find_candidate_majority_element(A)
     return candidate_majority_element if validate_candidate_element(A, candidate_majority_element) else -1
 
 
 def find_candidate_majority_element(A):
+    # Time O(N), Space O(1), where N is the length of the array.
     majority = 0
     count = 0
     for integer in A:
@@ -20,6 +22,7 @@ def find_candidate_majority_element(A):
 
 
 def validate_candidate_element(A, majority):
+    # Time O(N), Space O(1), where N is the length of the array.
     count = 0
     for integer in A:
         if integer == majority:

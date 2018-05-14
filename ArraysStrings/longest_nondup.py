@@ -1,6 +1,6 @@
-# Given a string, find the length of the longest substring without repeating characters.
-
 def longest_nondup(s):
+    # Given a string, find the length of the longest substring without repeating characters.
+    # Time O(N), Space O(M), where N is the length of string and M is the num of unique chars in string.
     i, j = 0, 0
     max_length = 0
     chr_set = set()
@@ -14,4 +14,5 @@ def longest_nondup(s):
             i += 1
     return max_length
 
-print (longest_nondup('pwwkew'))
+
+print(longest_nondup('pwwkew'))

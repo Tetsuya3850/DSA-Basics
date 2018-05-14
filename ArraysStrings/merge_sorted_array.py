@@ -1,6 +1,7 @@
-# Merges two sorted arrays of integers.
-
 def merge_sorted_array(A, B):
+    # Merges two sorted arrays of integers.
+    # Time O(A+B), Space O(B), where A is the length of the array A and B is the length of the array B.
+
     m = len(A) - 1
     n = len(B) - 1
     A.extend([None] * (n+1))
@@ -20,4 +21,5 @@ def merge_sorted_array(A, B):
         n -= 1
     return A
 
-print (merge_sorted_array([1, 2, 7, 9], [7, 8, 9, 10]))
+
+print(merge_sorted_array([1, 2, 7, 9], [7, 8, 9, 10]))
