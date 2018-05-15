@@ -1,4 +1,5 @@
 def string_compression(s):
+    # Time complexity O(N), Space complexity O(1), where N is the length of string.
     result = []
     count_consecutive = 0
     for i in range(len(s)):
@@ -14,12 +15,14 @@ def string_compression(s):
             count_consecutive = 0
     return ''.join(result)
 
-print (string_compression('aaabbccd'))
-print (string_compression('abcd'))
+
+print(string_compression('aaabbccd'))
+print(string_compression('abcd'))
+
 
 def string_decompression(s):
-    def string_decompression_helper(s):
-        nonlocal i
+    def string_decompression_helper(s, i):
+        # Time complexity O(N), Space complexity O(K), where N is the length of string and K is the num of recursion.
         result = []
         while i < len(s):
             if s[i].islower():
@@ -39,7 +42,7 @@ def string_decompression(s):
                     if s[i].islower():
                         sub_text.append(s[i])
                     else:
-                        recur_text = string_decompression_helper(s)
+                        recur_text = string_decompression_helper(s, i)
                         sub_text.append(recur_text)
                     i += 1
                 for _ in range(sub_times):
@@ -47,9 +50,9 @@ def string_decompression(s):
             i += 1
         return ''.join(result)
 
-    i = 0
-    return string_decompression_helper(s)
+    return string_decompression_helper(s, 0)
 
-print (string_decompression('3[abc]4[ab]c'))
-print (string_decompression('10[a]'))
-print (string_decompression('2[3[a]b]'))
+
+print(string_decompression('3[abc]4[ab]c'))
+print(string_decompression('10[a]'))
+print(string_decompression('2[3[a]b]'))
