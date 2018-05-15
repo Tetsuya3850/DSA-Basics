@@ -2,14 +2,16 @@
 
 from collections import Counter
 
+
 def strings_permutation_sort(s1, s2):
+    # Time O(AlogA + BlogB), Space O(1), where A is the length of s1 and B is the length of s2.
     if len(s1) != len(s2):
         return False
-    sorted_s1 = sorted(s1)
-    sorted_s2 = sorted(s2)
-    return sorted_s1 == sorted_s2
+    return sorted(s1) == sorted(s2)
+
 
 def strings_permutation_table(s1, s2):
+    # Time O(A + B), Space O(1), where A is the length of s1 and B is the length of s2.
     if len(s1) != len(s2):
         return False
     char_table = [0] * 128
@@ -21,11 +23,14 @@ def strings_permutation_table(s1, s2):
         char_table[ord(char)] -= 1
     return True
 
+
 def strings_permutation_counter(s1, s2):
+    # Time O(A + B), Space O(A + B), where A is the length of s1 and B is the length of s2.
     return Counter(s1) == Counter(s2)
+
 
 s1 = 'cracking'
 s2 = 'rkicgacn'
-print (strings_permutation_sort(s1, s2))
-print (strings_permutation_table(s1, s2))
-print (strings_permutation_counter(s1, s2))
+print(strings_permutation_sort(s1, s2))
+print(strings_permutation_table(s1, s2))
+print(strings_permutation_counter(s1, s2))
