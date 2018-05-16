@@ -20,6 +20,7 @@ class LinkedList:
             temp = temp.next
 
     def merge_sort(self):
+        # Time O(NlogN), Space O(logN), where N is the length of linked list.
         def get_middle_from_node(head):
             slow = head
             fast = head
