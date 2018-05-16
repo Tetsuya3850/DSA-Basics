@@ -1,8 +1,9 @@
 
 from collections import defaultdict
 
-# Time complexity O(N^2N!) Space complexity O(N!)
+
 def all_permutations(s):
+    # Time complexity O(N^2N!) Space complexity O(N!), where N is the length of ths string.
     def perm_helper(remain_s):
         if not len(remain_s):
             return [""]
@@ -17,13 +18,31 @@ def all_permutations(s):
 
     return perm_helper(s)
 
-print (all_permutations('abcd'))
+
+print(all_permutations('abc'))
+
+
+def all_permutations_other(s):
+    # Time complexity O(NN!), Space complexity O(N), where N is the length of ths string.
+    def helper(A, l):
+        if l == len(A)-1:
+            print("".join(A))
+            return
+        for i in range(l, len(A)):
+            A[l], A[i] = A[i], A[l]
+            helper(A, l+1)
+            A[l], A[i] = A[i], A[l]
+    helper(list(s), 0)
+
+
+all_permutations_other('abc')
 
 
 def all_permutations_non_unique(s):
+    # Time complexity O(N^2N!), Space complexity O(N), where N is the length of ths string.
     def perm_nonu_helper(part_result, remaining_dict):
         if len(part_result) == len(s):
-            print (part_result)
+            print(part_result)
             return
 
         for item in remaining_dict.keys():
@@ -38,20 +57,24 @@ def all_permutations_non_unique(s):
         d[ch] += 1
     perm_nonu_helper('', d)
 
+
 all_permutations_non_unique('aabc')
 
 
 def all_anagrams(s, trie_dict):
     def all_anagrams_helper(partial_result, remaining_s):
+        # Time complexity O(N^2N!), Space complexity O(N), where N is the length of ths string.
         if len(partial_result) == len(s):
             if trie_dict.search(partial_result):
-                print (partial_result)
+                print(partial_result)
                 return
         for i in range(len(remaining_s)):
             if trie_dict.shallow_search(partial_result + remaining_s[i]):
-                all_anagrams_helper(partial_result + remaining_s[i], remaining_s[:i] + remaining_s[i+1:])
+                all_anagrams_helper(
+                    partial_result + remaining_s[i], remaining_s[:i] + remaining_s[i+1:])
 
     all_anagrams_helper("", s)
+
 
 class TrieNode:
     def __init__(self):
@@ -64,6 +87,7 @@ class TrieNode:
             if child:
                 return False
         return True
+
 
 class Trie:
     def __init__(self):
@@ -103,6 +127,7 @@ class Trie:
                 return 0
             curr = curr.children[index]
         return curr.prefix
+
 
 my_trie = Trie()
 my_trie.insert("god")

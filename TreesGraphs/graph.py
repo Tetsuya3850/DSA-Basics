@@ -1,5 +1,6 @@
 from collections import defaultdict, deque, Counter
 
+
 class Vertex:
     def __init__(self, name):
         self.name = name
@@ -7,6 +8,7 @@ class Vertex:
 
     def addEdge(self, vertex):
         self.adjacent.append(vertex)
+
 
 class Graph:
     def __init__(self):
@@ -16,6 +18,7 @@ class Graph:
         self.vertexes.append(vertex)
 
     def path_BFS(self, start, end):
+        # Time O(k^q). Space O(k^q), where k is the avg num of edges per vertex and q is the length of path.
         visited = set()
         visited.add(start)
         queue = deque()
@@ -113,6 +116,7 @@ class Graph:
         return stack[::-1]
 
     def has_path_BFS_bidirectional(self, start, end):
+        # Time O(k^q/2). Space O(k^q/2), where k is the avg num of edges per vertex and q is the length of path.
         def BFS_once(queue, visited):
             vertex = queue.popleft()
             for neighbour in vertex.adjacent:
@@ -135,6 +139,7 @@ class Graph:
                 return True
         return False
 
+
 g = Graph()
 a = Vertex('A')
 b = Vertex('B')
@@ -155,9 +160,9 @@ g.addVertex(c)
 g.addVertex(d)
 g.addVertex(e)
 g.addVertex(f)
-print (g.path_BFS(a, d))
-print (g.has_path_DFS(a, d))
-print (g.isCyclic())
-print (g.toplogical_sort())
-print (g.toplogical_sort_alternative())
-print (g.has_path_BFS_bidirectional(a, d))
+print(g.path_BFS(a, d))
+print(g.has_path_DFS(a, d))
+print(g.isCyclic())
+print(g.toplogical_sort())
+print(g.toplogical_sort_alternative())
+print(g.has_path_BFS_bidirectional(a, d))
