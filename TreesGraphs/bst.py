@@ -10,7 +10,7 @@ class BinarySearchTree:
         self.root = None
 
     def insert(self, data):
-        # Time O(logN), Space O(1), where N is the num of nodes in bst.
+        # Time O(H), Space O(1), where H is the height of bst.
         if not self.root:
             self.root = BinaryTreeNode(data)
         else:
@@ -30,7 +30,7 @@ class BinarySearchTree:
                 parent.right = BinaryTreeNode(data)
 
     def find(self, data):
-        # Time O(logN), Space O(1), where N is the num of nodes in bst.
+        # Time O(H), Space O(1), where H is the height of bst.
         curr = self.root
         while curr:
             if data == curr.data:
@@ -42,7 +42,7 @@ class BinarySearchTree:
         return False
 
     def delete(self, data):
-        # Time O(logN), Space O(1), where N is the num of nodes in bst.
+        # Time O(H), Space O(1), where H is the height of bst.
         curr = self.root
         parent = None
         while curr and curr.data != data:
@@ -83,14 +83,14 @@ class BinarySearchTree:
         print()
 
     def get_min(self):
-        # Time O(logN), Space O(1), where N is the num of nodes in bst.
+        # Time O(H), Space O(1), where H is the height of bst.
         curr = self.root
         while curr.left:
             curr = curr.left
         return curr.data
 
     def get_max(self):
-        # Time O(logN), Space O(1), where N is the num of nodes in bst.
+        # Time O(H), Space O(1), where H is the height of bst.
         curr = self.root
         while curr.right:
             curr = curr.right

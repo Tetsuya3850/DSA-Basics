@@ -1,6 +1,7 @@
-# Design a stack that could operate push, pop and min in O(1) time.
 
 class Min_Stack:
+    # Design a stack that could operate push, pop and min in O(1) time.
+
     def __init__(self):
         self.stack = []
         self.min_stack = []
@@ -31,6 +32,7 @@ class Min_Stack:
     def peek(self):
         return self.stack[-1]
 
+
 min_stack = Min_Stack()
 min_stack.push(6)
 min_stack.push(3)
@@ -38,4 +40,4 @@ min_stack.push(4)
 min_stack.push(9)
 min_stack.push(2)
 min_stack.pop()
-print (min_stack.min())
+print(min_stack.min())

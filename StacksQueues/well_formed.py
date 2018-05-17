@@ -1,7 +1,8 @@
-# A program that tests if a string made up of the charcters (), [], {} is well-formed.
 
 def well_formed(s):
-    stack, lookup = [], { '(': ')', '[': ']', '{': '}' }
+    # A program that tests if a string made up of the charcters (), [], {} is well-formed.
+    # Time O(N), Space O(N), where N is the length of the string.
+    stack, lookup = [], {'(': ')', '[': ']', '{': '}'}
     for c in s:
         if c in lookup:
             stack.append(c)
@@ -14,5 +15,6 @@ def well_formed(s):
                     return False
     return not stack
 
-print (well_formed('([]){()}'))
-print (well_formed('([])()}'))
+
+print(well_formed('([]){()}'))
+print(well_formed('([])()}'))

@@ -1,5 +1,5 @@
-# Time complexity O(kN) Space complexity O(1)
 def radix_sort(A):
+    # Time O(kN), Space O(1), where N is the length of the array and k is the number of passes.
     def counting_sort_radix(A, exp):
         count_table = [0] * 10
         output = [0] * len(A)
@@ -23,5 +23,6 @@ def radix_sort(A):
         exp *= 10
     return A
 
+
 A = [170, 45, 75, 90, 802, 24, 2, 66]
-print (radix_sort(A))
+print(radix_sort(A))

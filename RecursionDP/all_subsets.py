@@ -1,9 +1,5 @@
-# Write a method to return all subsets of a set.
-
-# Time complexity O(N2^N). Space complexity O(N2^N).
-
-
 def all_subsets(A):
+    # Time complexity O(N2^N). Space complexity O(N2^N).
     results = []
     results.append([])
     for item in A:

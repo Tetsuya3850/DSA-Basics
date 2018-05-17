@@ -1,5 +1,5 @@
-# Time complexity O(NlogN) Space complexity O(logN)
 def quick_sort(A):
+    # Time O(NlogN), Space O(logN), where N is the length of the array.
     def quick_sort_helper(A, l, r):
         if l < r:
             pi = partition(A, l, r)
@@ -19,5 +19,6 @@ def quick_sort(A):
     quick_sort_helper(A, 0, len(A)-1)
     return A
 
+
 A = [64, 34, 25, 12, 22, 11, 90]
-print (quick_sort(A))
+print(quick_sort(A))

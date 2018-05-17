@@ -1,5 +1,5 @@
-# Time complexity O(NlogN) Space complexity O(N)
 def merge_sort(A):
+    # Time O(NlogN), Space O(N), where N is the length of array.
     def merge(A, l, m, r):
         n1 = m - l + 1
         n2 = r - m
@@ -40,5 +40,6 @@ def merge_sort(A):
     merge_sort_helper(A, 0, len(A)-1)
     return A
 
+
 A = [64, 34, 25, 12, 22, 11, 90]
-print (merge_sort(A))
+print(merge_sort(A))

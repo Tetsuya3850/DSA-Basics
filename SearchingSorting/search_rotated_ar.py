@@ -1,5 +1,5 @@
-
 def search_rotated_ar(nums, target):
+    # Time O(logN), Space O(1), where N is the length of the array.
     start = 0
     end = len(nums) - 1
     while start <= end:
@@ -18,4 +18,5 @@ def search_rotated_ar(nums, target):
                 end = mid - 1
     return -1
 
-print (search_rotated_ar([4, 5, 6, 7, 0, 1, 2], 5))
+
+print(search_rotated_ar([4, 5, 6, 7, 0, 1, 2], 5))
