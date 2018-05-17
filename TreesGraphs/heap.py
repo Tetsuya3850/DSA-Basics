@@ -3,15 +3,18 @@ class MinHeap:
         self.heap = []
 
     def peek(self):
+        # Time O(1), Space O(1), where N is the length of heap.
         if not self.heap:
             return False
         return self.heap[0]
 
     def push(self, data):
+        # Time O(logN), Space O(1), where N is the length of heap.
         self.heap.append(data)
         self.heapify_up()
 
     def heapify_up(self):
+        # Time O(logN), Space O(1), where N is the length of heap.
         child = len(self.heap) - 1
         parent = (child - 1) // 2
         while self.heap[child] < self.heap[parent] and child != 0:
@@ -20,6 +23,7 @@ class MinHeap:
             parent = (child - 1) // 2
 
     def pop(self):
+        # Time O(logN), Space O(1), where N is the length of heap.
         if not self.heap:
             return False
         self.heap[0], self.heap[-1] = self.heap[-1], self.heap[0]
@@ -28,6 +32,7 @@ class MinHeap:
         return data
 
     def heapify_down(self):
+        # Time O(logN), Space O(1), where N is the length of heap.
         i = 0
         while (2*i+1) < len(self.heap):
             smaller_idx = 2*i+1
@@ -38,10 +43,11 @@ class MinHeap:
             self.heap[smaller_idx], self.heap[i] = self.heap[i], self.heap[smaller_idx]
             i = smaller_idx
 
+
 min_heap = MinHeap()
 min_heap.push(5)
 min_heap.push(3)
 min_heap.push(9)
 min_heap.push(4)
 min_heap.pop()
-print (min_heap.heap)
+print(min_heap.heap)

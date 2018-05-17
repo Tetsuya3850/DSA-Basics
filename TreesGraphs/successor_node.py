@@ -1,14 +1,14 @@
-# Find the in-order successor node in a bst. You may assume that each node has a link to its parent.
-
 class BinaryTreeNode:
-
     def __init__(self, data=None, left=None, right=None, parent=None):
         self.data = data
         self.left = left
         self.right = right
         self.parent = parent
 
+
 def successor_node(node):
+    # Find the in-order successor node in a bst. You may assume that each node has a link to its parent.
+    # Time O(H), Space O(1), where H is the height of the tree.
     if node.right:
         next_node = node.right
         while next_node.left:
@@ -21,6 +21,7 @@ def successor_node(node):
             cur_node = next_node
             next_node = next_node.parent
         return next_node
+
 
 A = BinaryTreeNode(314)
 B = BinaryTreeNode(6)
@@ -69,4 +70,4 @@ M = BinaryTreeNode(641)
 L.right = M
 M.parent = L
 
-print successor_node(A.right.right.right)
+print(successor_node(A.right.right.right))

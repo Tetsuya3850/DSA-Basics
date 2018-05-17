@@ -2,6 +2,7 @@ from collections import defaultdict
 
 
 def pathSum(root, target):
+    # Time O(NlogN), Space O(H), where W is the num of nodes in the tree and H is the height of the tree.
     def helper(node, target, cur):
         if not node:
             return 0
@@ -14,6 +15,7 @@ def pathSum(root, target):
 
 
 def pathSumOptimal(root, target):
+    # Time O(N), Space O(logN), where W is the num of nodes in the tree.
     def helper(node, cur, target,  path_table):
         if not node:
             return 0

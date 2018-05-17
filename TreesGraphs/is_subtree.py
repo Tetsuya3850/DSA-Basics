@@ -1,33 +1,32 @@
-# Determine if T2 is a subtree of T1.
 
 
 def is_subtree(t1, t2):
+    # Determine if T2 is a subtree of T1.
+    # Time O(N), Space O(N), where N is the num of nodes in t1.
     preorder_t1 = get_preorder(t1)
     preorder_t2 = get_preorder(t2)
-    return contains_sublist(preorder_t1, preorder_t2)
+    return preorder_t2 in preorder_t1
 
 
 def get_preorder(root):
+    # Time O(N), where N is the num of nodes in tree.
     def helper(node):
         nonlocal A
         if not node:
             A.append('X')
             return
-        A.append(node.data)
+        A.append(str(node.data))
         helper(node.left)
         helper(node.right)
 
     A = []
     helper(root)
-    return A
-
-
-def contains_sublist(lst, sublst):
-    n = len(sublst)
-    return any((sublst == lst[i:i+n]) for i in range(len(lst)-n+1))
+    return "".join(A)
 
 
 def is_subtree_optimal(t1, t2):
+    # Time O(N + kM), Space O(log(N)), where N, M is the num of nodes in t1, t2.
+    # And k is the num of nodes in t2 that match t1's root.
     def is_subtree_helper(t1, t2):
         if not t1:
             return False
@@ -40,6 +39,7 @@ def is_subtree_optimal(t1, t2):
 
 
 def match_tree(t1, t2):
+    # Time O(M), Space O(log(M)), where M is the num of nodes in t2.
     if not t1 and not t2:
         return True
     elif not t1 or not t2:

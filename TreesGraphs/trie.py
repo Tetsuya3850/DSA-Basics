@@ -10,6 +10,7 @@ class TrieNode:
                 return False
         return True
 
+
 class Trie:
     def __init__(self):
         self.root = TrieNode()
@@ -18,6 +19,7 @@ class Trie:
         return ord(ch) - ord('a')
 
     def insert(self, key):
+        # Time O(N), Space O(1), where N is the length of the key.
         if len(key) == 0:
             return
         curr = self.root
@@ -31,6 +33,7 @@ class Trie:
         curr.end = True
 
     def search(self, key):
+        # Time O(N), Space O(1), where N is the length of the key.
         curr = self.root
         for level in range(len(key)):
             index = self.char_to_index(key[level])
@@ -40,6 +43,7 @@ class Trie:
         return curr != None and curr.end
 
     def shallow_search(self, key):
+        # Time O(N), Space O(1), where N is the length of the key.
         curr = self.root
         for level in range(len(key)):
             index = self.char_to_index(key[level])
@@ -49,6 +53,7 @@ class Trie:
         return curr.prefix
 
     def delete(self, key):
+        # Time O(N), Space O(1), where N is the length of the key.
         def delete_helper(curr_node, key, level, length):
             if curr_node:
                 curr_node.prefix -= 1
@@ -66,6 +71,7 @@ class Trie:
             return
         delete_helper(self.root, key, 0, len(key))
 
+
 my_trie = Trie()
 my_trie.insert('the')
 my_trie.insert('a')
@@ -74,11 +80,11 @@ my_trie.insert('anaswe')
 my_trie.insert('any')
 my_trie.insert('by')
 my_trie.insert('their')
-print (my_trie.search('their'))
-print (my_trie.search('an'))
+print(my_trie.search('their'))
+print(my_trie.search('an'))
 my_trie.delete('their')
-print (my_trie.search('their'))
-print (my_trie.shallow_search('c'))
-print (my_trie.shallow_search('the'))
-print (my_trie.shallow_search(''))
-print (my_trie.shallow_search('an'))
+print(my_trie.search('their'))
+print(my_trie.shallow_search('c'))
+print(my_trie.shallow_search('the'))
+print(my_trie.shallow_search(''))
+print(my_trie.shallow_search('an'))

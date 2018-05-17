@@ -47,6 +47,7 @@ class Graph:
         return has_path_DFS_helper(start, end)
 
     def isCyclic(self):
+        # Time O(V + E), Space O(V), where V is the num of vertexes and E is the num of edges.
         def isCyclicUtil(v):
             visited.add(v)
             currRec.add(v)
@@ -68,6 +69,7 @@ class Graph:
         return False
 
     def toplogical_sort(self):
+        # Time O(V + E), Space O(V+E), where V is the num of vertexes and E is the num of edges.
         def inbound_count():
             c = Counter()
             for vertex in self.vertexes:
@@ -99,6 +101,7 @@ class Graph:
         return order if len(order) == len(self.vertexes) else 'Cycle!'
 
     def toplogical_sort_alternative(self):
+        # Time O(V + E), Space O(V), where V is the num of vertexes and E is the num of edges.
         def toplogical_sort_util(v):
             visited.add(v)
             for neighbour in v.adjacent:

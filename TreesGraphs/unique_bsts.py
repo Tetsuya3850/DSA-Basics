@@ -8,10 +8,9 @@ class TreeNode:
         self.right = None
 
 
-# Given n, how many structurally unique BST's (binary search trees) that store values 1 ... n?
-
-
 def numTrees(n):
+    # Given n, how many structurally unique BST's that store values 1 ... n?
+    # Time O(N^2), Space O(N), where n is the given number.
     def helper(n, cache):
         if not n:
             return 1
@@ -26,14 +25,11 @@ def numTrees(n):
     return helper(n, cache)
 
 
-# Given an integer n, generate all structurally unique BST's (binary search trees) that store values 1 ... n.
-
-
 def generateTrees(n):
+    # Given an integer n, generate all structurally unique BST's that store values 1 ... n.
     def helper(nums):
         if not nums:
             return [None]
-
         results = []
         for i in range(len(nums)):
             left_results = helper(nums[:i])

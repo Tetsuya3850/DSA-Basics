@@ -4,11 +4,13 @@ class BinaryTreeNode:
         self.left = left
         self.right = right
 
+
 class BinarySearchTree:
     def __init__(self):
         self.root = None
 
     def insert(self, data):
+        # Time O(logN), Space O(1), where N is the num of nodes in bst.
         if not self.root:
             self.root = BinaryTreeNode(data)
         else:
@@ -28,6 +30,7 @@ class BinarySearchTree:
                 parent.right = BinaryTreeNode(data)
 
     def find(self, data):
+        # Time O(logN), Space O(1), where N is the num of nodes in bst.
         curr = self.root
         while curr:
             if data == curr.data:
@@ -39,6 +42,7 @@ class BinarySearchTree:
         return False
 
     def delete(self, data):
+        # Time O(logN), Space O(1), where N is the num of nodes in bst.
         curr = self.root
         parent = None
         while curr and curr.data != data:
@@ -68,28 +72,32 @@ class BinarySearchTree:
                     parent.right = key_node.left
 
     def print_inorder(self):
+        # Time O(N), Space O(1), where N is the num of nodes in bst.
         def print_inorder_helper(root):
             if not root:
                 return
             print_inorder_helper(root.left)
-            print (root.data, end = ' ')
+            print(root.data, end=' ')
             print_inorder_helper(root.right)
         print_inorder_helper(self.root)
         print()
 
     def get_min(self):
+        # Time O(logN), Space O(1), where N is the num of nodes in bst.
         curr = self.root
         while curr.left:
             curr = curr.left
         return curr.data
 
     def get_max(self):
+        # Time O(logN), Space O(1), where N is the num of nodes in bst.
         curr = self.root
         while curr.right:
             curr = curr.right
         return curr.data
 
-bst= BinarySearchTree()
+
+bst = BinarySearchTree()
 bst.insert(50)
 bst.insert(32)
 bst.insert(56)
@@ -100,9 +108,9 @@ bst.insert(60)
 bst.insert(7)
 bst.insert(20)
 bst.insert(56)
-print (bst.find(17))
+print(bst.find(17))
 bst.delete(54)
-print (bst.root.right.data)
+print(bst.root.right.data)
 bst.print_inorder()
-print (bst.get_min())
-print (bst.get_max())
+print(bst.get_min())
+print(bst.get_max())

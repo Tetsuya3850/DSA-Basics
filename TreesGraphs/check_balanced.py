@@ -1,6 +1,6 @@
-# A function to check if a binary tree is balanced.
-
 def check_balanced(tree):
+    # A function to check if a binary tree is balanced.
+    # Time O(N), Space O(H), where N is the num of nodes in tree and H is the height of the tree.
     if not tree:
         return -1
     left_height = check_balanced(tree.left)
@@ -15,11 +15,13 @@ def check_balanced(tree):
     else:
         return max(left_height, right_height) + 1
 
+
 class BinaryTreeNode:
     def __init__(self, data=None, left=None, right=None):
         self.data = data
         self.left = left
         self.right = right
+
 
 root = BinaryTreeNode(314)
 root.left = BinaryTreeNode(6)
@@ -34,4 +36,4 @@ root.left.right.right = BinaryTreeNode(3)
 root.right.left.right = BinaryTreeNode(1)
 root.right.right.right = BinaryTreeNode(28)
 
-print check_balanced(root)
+print(check_balanced(root))
