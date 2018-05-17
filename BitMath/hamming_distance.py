@@ -1,5 +1,6 @@
 
 def hamming_distance(a, b):
+    # Time complexity O(k), where k is the num of 1s in a XOR b.
     diff = a ^ b
     count = 0
     while diff:
@@ -7,4 +8,5 @@ def hamming_distance(a, b):
         count += 1
     return count
 
-print (hamming_distance(17, 5))
+
+print(hamming_distance(17, 5))

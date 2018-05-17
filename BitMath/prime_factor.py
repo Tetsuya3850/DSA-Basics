@@ -1,9 +1,9 @@
-# Program to print all prime factors of a given number.
-
 import math
 
 
 def prime_factor(n):
+    # Program to print all prime factors of a given number.
+    # Time O(sqrt(n)), Space O(1), where n is the given num.
     result = []
 
     while n % 2 == 0:

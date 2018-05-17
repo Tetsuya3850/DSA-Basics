@@ -8,6 +8,7 @@ class BinaryTreeNode:
 def minimal_bst(A):
     def minimal_bst_helper(A, start, end):
         # Create a BST with minimal height from a sorted array with unique integers.
+        # Time O(N), Space
         if start > end:
             return None
         mid = start + (end - start) // 2

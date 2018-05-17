@@ -22,7 +22,7 @@ print(string_compression('abcd'))
 
 def string_decompression(s):
     def string_decompression_helper(s, i):
-        # Time complexity O(N), Space complexity O(K), where N is the length of string and K is the num of recursion.
+        # Time complexity O(N), where N is the length of string.
         result = []
         while i < len(s):
             if s[i].islower():

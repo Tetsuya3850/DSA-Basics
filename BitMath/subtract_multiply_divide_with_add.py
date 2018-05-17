@@ -1,5 +1,6 @@
 # Write methods to implement the multiply, subtract, and divede opereations for integers. Thre results of all of these are integers. Use only the add opereator.
 
+
 def negate(a):
     neg = 0
     new_sign = 1 if a < 0 else -1
@@ -8,14 +9,17 @@ def negate(a):
         a += new_sign
     return neg
 
+
 def abs(a):
     if a < 0:
         return negate(a)
     else:
         return a
 
+
 def subtract(a, b):
     return a + negate(b)
+
 
 def multiply(a, b):
     result = 0
@@ -24,6 +28,7 @@ def multiply(a, b):
     if b < 0:
         result = negate(result)
     return result
+
 
 def divide(a, b):
     if b == 0:
@@ -41,14 +46,16 @@ def divide(a, b):
     else:
         return negate(x)
 
-print subtract(9, -2)
-print multiply(9, -2)
-print multiply(-9, -2)
-print divide(10, -2)
-print divide(-10, -2)
+
+print(subtract(9, -2))
+print(multiply(9, -2))
+print(multiply(-9, -2))
+print(divide(10, -2))
+print(divide(-10, -2))
 
 
 def multiply_recursive(a, b):
+    # Time O(logk), Space O(logk), where k is the smaller of the two.
     def multiply_helper(smaller, bigger):
         if smaller == 0:
             return 0
@@ -65,4 +72,5 @@ def multiply_recursive(a, b):
     smaller = min(a, b)
     return multiply_helper(smaller, bigger)
 
-print (multiply_recursive(8, 9))
+
+print(multiply_recursive(8, 9))
