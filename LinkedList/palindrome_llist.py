@@ -1,5 +1,6 @@
 # Check whether linked list is palindrome.
 
+
 def palindrome_llist(llist):
     def is_palindrome_recurse(head, leng):
         if head == None and leng <= 0:
@@ -15,10 +16,12 @@ def palindrome_llist(llist):
 
     return is_palindrome_recurse(llist.head, llist.size()).result
 
+
 class Result:
     def __init__(self, node, result):
         self.node = node
         self.result = result
+
 
 def palindrome_llist_iterative(llist):
     fast = llist.head
@@ -37,10 +40,12 @@ def palindrome_llist_iterative(llist):
         slow = slow.next
     return True
 
+
 class Node:
     def __init__(self, data=0, next_node=None):
         self.data = data
         self.next = next_node
+
 
 class LinkedList:
     def __init__(self):
@@ -61,11 +66,12 @@ class LinkedList:
             temp = temp.next
         return count
 
+
 llist = LinkedList()
 llist.appendleft(4)
 llist.appendleft(3)
 llist.appendleft(3)
 llist.appendleft(3)
 llist.appendleft(4)
-print (palindrome_llist(llist))
-print (palindrome_llist_iterative(llist))
+print(palindrome_llist(llist))
+print(palindrome_llist_iterative(llist))
