@@ -1,5 +1,5 @@
-# Time complexity O(A+B). Space complexity O(A+B).
 def sum_llists_reverse(llist1, llist2):
+    # Time complexity O(A+B). Space complexity O(A+B).
     len1 = llist1.size()
     len2 = llist2.size()
     if len1 < len2:
@@ -11,10 +11,12 @@ def sum_llists_reverse(llist1, llist2):
         sum.sum.appendleft(sum.carry)
     return sum.sum
 
+
 def padList(llist, pad):
     for _ in range(pad):
         llist.appendleft(0)
     return llist
+
 
 def addListsHelper(llist1, llist2):
     if not llist1 and not llist2:
@@ -26,10 +28,12 @@ def addListsHelper(llist1, llist2):
     sum.carry = val // 10
     return sum
 
+
 class Node:
     def __init__(self, data=0, next_node=None):
         self.data = data
         self.next = next_node
+
 
 class LinkedList:
     def __init__(self):
@@ -53,13 +57,15 @@ class LinkedList:
     def printall(self):
         temp = self.head
         while temp:
-            print (temp.data, end=" ")
+            print(temp.data, end=" ")
             temp = temp.next
         print()
+
 
 class Partial_Sum:
     sum = LinkedList()
     carry = 0
+
 
 llist1 = LinkedList()
 llist1.appendleft(6)

@@ -1,10 +1,12 @@
 from collections import defaultdict
 
+
 class DoubleNode:
     def __init__(self, data=0, next_node=None, prev_node=None):
         self.data = data
         self.next = next_node
         self.prev = prev_node
+
 
 class Cache:
     def __init__(self):
@@ -15,13 +17,15 @@ class Cache:
         self.dict = defaultdict()
 
     def lookup(self):
+        # Time O(N), Space O(1), where N is the length of the cache.
         temp = self.tail
         while temp:
-            print (temp.data, end=' ')
+            print(temp.data, end=' ')
             temp = temp.prev
         print()
 
     def update(self, page):
+        # Time O(1), Space O(1), where N is the length of the cache.
         if page in self.dict:
             self.movetop(page)
         else:
@@ -32,6 +36,7 @@ class Cache:
                 self.enqueue(page)
 
     def enqueue(self, data):
+        # Time O(1), Space O(1), where N is the length of the cache.
         new_node = DoubleNode(data)
         if not self.size:
             self.head = new_node
@@ -44,6 +49,7 @@ class Cache:
         self.dict[data] = new_node
 
     def dequeue(self):
+        # Time O(1), Space O(1), where N is the length of the cache.
         if not self.size:
             return
         temp = self.head
@@ -58,6 +64,7 @@ class Cache:
         return data
 
     def movetop(self, page):
+        # Time O(1), Space O(1), where N is the length of the cache.
         target = self.dict[page]
         if target == self.tail:
             return
@@ -72,6 +79,7 @@ class Cache:
         if target == self.head:
             self.head = target_next
         self.tail = target
+
 
 LRU = Cache()
 LRU.update(1)

@@ -1,9 +1,8 @@
-# Partition a linked list around a value x.
-
 class Node:
     def __init__(self, data=0, next_node=None):
         self.data = data
         self.next = next_node
+
 
 class LinkedList:
     def __init__(self):
@@ -17,11 +16,12 @@ class LinkedList:
     def printList(self):
         temp = self.head
         while(temp):
-            print temp.data,
+            print(temp.data)
             temp = temp.next
 
-    # Time complexity O(N). Space complexity O(N).
     def partition_llist(self, x):
+        # Partition a linked list around a value x.
+        # Time complexity O(N). Space complexity O(N).
         it = self.head
         head_low = tail_low = Node()
         head_same = tail_same = Node()
@@ -42,6 +42,7 @@ class LinkedList:
         tail_low.next = head_same.next
         tail_same.next = head_high.next
         self.head = head_low.next
+
 
 llist = LinkedList()
 llist.push(1)

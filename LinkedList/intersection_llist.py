@@ -1,4 +1,5 @@
 def intersection_llist(llist1, llist2):
+    # Time O(A+B), Space O(1), where A, B is the length of the linkedlists.
     len1 = llist1.size()
     len2 = llist2.size()
     diff = abs(len1 - len2)
@@ -13,10 +14,12 @@ def intersection_llist(llist1, llist2):
         head2 = head2.next
     return head1
 
+
 class Node:
     def __init__(self, data=0, next_node=None):
         self.data = data
         self.next = next_node
+
 
 class LinkedList:
     def __init__(self):
@@ -37,10 +40,11 @@ class LinkedList:
             temp = temp.next
         return count
 
+
 llist1 = LinkedList()
-llist1.head  = Node(1)
+llist1.head = Node(1)
 second = Node(2)
-third  = Node(3)
+third = Node(3)
 forth = Node(4)
 llist1.head.next = second
 second.next = third
@@ -52,4 +56,4 @@ fifth = Node(5)
 llist2.head.next = fifth
 fifth.next = third
 
-print (intersection_llist(llist1, llist2))
+print(intersection_llist(llist1, llist2))

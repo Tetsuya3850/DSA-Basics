@@ -9,11 +9,13 @@ class LinkedList:
         self.head = None
 
     def appendleft(self, new_data):
+        # Time O(1), Space O(1), where N is the length of the linkedlist.
         new_node = Node(new_data)
         new_node.next = self.head
         self.head = new_node
 
     def append(self, new_data):
+        # Time O(N), Space O(1), where N is the length of the linkedlist.
         new_node = Node(new_data)
         if self.head is None:
             self.head = new_node
@@ -24,6 +26,7 @@ class LinkedList:
         last.next = new_node
 
     def pop(self):
+        # Time O(N), Space O(1), where N is the length of the linkedlist.
         temp = self.head
         if not temp:
             return False
@@ -34,12 +37,14 @@ class LinkedList:
         return data
 
     def popleft(self):
+        # Time O(1), Space O(1), where N is the length of the linkedlist.
         temp = self.head
         if not temp:
             return False
         self.head = temp.next
 
     def size(self):
+        # Time O(N), Space O(1), where N is the length of the linkedlist.
         temp = self.head
         count = 0
         if not temp:
@@ -50,6 +55,7 @@ class LinkedList:
         return count
 
     def search(self, key):
+        # Time O(N), Space O(1), where N is the length of the linkedlist.
         temp = self.head
         while temp and temp.data != key:
             temp = temp.next
@@ -58,6 +64,7 @@ class LinkedList:
         return True
 
     def delete(self, key):
+        # Time O(N), Space O(1), where N is the length of the linkedlist.
         temp = self.head
         if not temp:
             return False
@@ -72,6 +79,7 @@ class LinkedList:
         return False
 
     def reverse(self):
+        # Time O(N), Space O(1), where N is the length of the linkedlist.
         prev = None
         current = self.head
         while current:
@@ -82,6 +90,7 @@ class LinkedList:
         self.head = prev
 
     def reverse_part(self, m, n):
+        # Time O(n), Space O(1), where n is the upper of given range.
         dummy_head = sublist_head = Node(0, self.head)
 
         for _ in range(m-1):
@@ -97,6 +106,7 @@ class LinkedList:
         self.head = dummy_head.next
 
     def printall(self):
+        # Time O(N), Space O(1), where N is the length of the linkedlist.
         temp = self.head
         while temp:
             print(temp.data, end=" ")

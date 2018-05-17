@@ -1,6 +1,7 @@
-# Merge two arrays in all possible ways, while keeping the same relativ order.
+# Merge two arrays in all possible ways, while keeping the same relative order.
 
 from collections import deque
+
 
 def weave_lists(A1, A2):
     def weave_lists_helper(d1, d2, prefix):
@@ -30,4 +31,5 @@ def weave_lists(A1, A2):
     weave_lists_helper(deque_A1, deque_A2, [])
     return results
 
-print (weave_lists([1, 2], [3, 4]))
+
+print(weave_lists([1, 2], [3, 4]))

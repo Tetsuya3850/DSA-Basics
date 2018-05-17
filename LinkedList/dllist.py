@@ -4,12 +4,14 @@ class DoubleNode:
         self.next = next_node
         self.prev = prev_node
 
+
 class DoublyLinkedList:
     def __init__(self):
         self.head = None
         self.tail = None
 
     def appendleft(self, new_data):
+        # Time O(1), Space O(1), where N is the length of the linkedlist.
         new_node = DoubleNode(new_data)
         if not self.head:
             self.head = new_node
@@ -20,6 +22,7 @@ class DoublyLinkedList:
             self.head = new_node
 
     def append(self, new_data):
+        # Time O(1), Space O(1), where N is the length of the linkedlist.
         new_node = DoubleNode(new_data)
         if not self.tail:
             self.head = new_node
@@ -30,6 +33,7 @@ class DoublyLinkedList:
             self.tail = new_node
 
     def pop(self):
+        # Time O(1), Space O(1), where N is the length of the linkedlist.
         temp = self.tail
         if not temp:
             return
@@ -42,6 +46,7 @@ class DoublyLinkedList:
         return data
 
     def popleft(self):
+        # Time O(1), Space O(1), where N is the length of the linkedlist.
         temp = self.head
         if not temp:
             return
@@ -54,11 +59,13 @@ class DoublyLinkedList:
         return data
 
     def printall(self):
+        # Time O(N), Space O(1), where N is the length of the linkedlist.
         temp = self.head
         while temp:
-            print (temp.data, end=" ")
+            print(temp.data, end=" ")
             temp = temp.next
         print()
+
 
 dll = DoublyLinkedList()
 dll.append(4)

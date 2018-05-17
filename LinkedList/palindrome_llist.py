@@ -2,6 +2,7 @@
 
 
 def palindrome_llist(llist):
+    # Time O(N), Space O(N), where N is the length of the linkedlist.
     def is_palindrome_recurse(head, leng):
         if head == None and leng <= 0:
             return Result(head, True)
@@ -24,6 +25,7 @@ class Result:
 
 
 def palindrome_llist_iterative(llist):
+    # Time O(N), Space O(N), where N is the length of the linkedlist.
     fast = llist.head
     slow = llist.head
     stack = []
