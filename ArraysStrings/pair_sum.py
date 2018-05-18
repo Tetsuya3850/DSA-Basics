@@ -22,7 +22,6 @@ print(pair_sum([1, 7, 8, 3, 5, 6, 2, 7, 3], 10))
 
 def pair_sum_sort(A, goal_sum):
     # Time O(NlogN), Space O(1), where N is the length of the array.
-
     A.sort()
     first, last = 0, len(A) - 1
     results = []

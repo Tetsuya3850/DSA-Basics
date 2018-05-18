@@ -14,9 +14,3 @@ def kth_largest_nums(nums, k):
 
 
 print(kth_largest_nums([3, 1, 5, 4, 2, 6], 4))
-
-
-def kth_largest_selection(nums, k):
-
-
-print(kth_largest_selection([3, 1, 5, 4, 2, 6], 4))
