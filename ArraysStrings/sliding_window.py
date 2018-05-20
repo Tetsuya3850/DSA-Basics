@@ -15,3 +15,42 @@ def minSubArrayLen(target, nums):
             total -= nums[l_point]
             l_point += 1
     return min_size if min_size != float('inf') else 0
+
+
+from collections import Counter
+
+
+def all_distinct_subarray(paragraph):
+    # Given an array A, find the shortest subarray A[i, j] such that each distinct value present in A is also present in the subarray.
+    # Time O(N), Space O(1), where N is the length of the array.
+    keywords = set(paragraph)
+    keywords_count = Counter(keywords)
+    result = [-1, -1]
+    remaining_to_cover = len(keywords)
+    left = 0
+    right = 0
+    while right < len(paragraph):
+        while right < len(paragraph) and remaining_to_cover > 0:
+            next_word = paragraph[right]
+            if next_word in keywords:
+                keywords_count[next_word] -= 1
+                if keywords_count[next_word] >= 0:
+                    remaining_to_cover -= 1
+            right += 1
+
+        while remaining_to_cover == 0:
+            if result == [-1, -1] or (right - left) < (result[1] - result[0]):
+                result = [left, right-1]
+            left_word = paragraph[left]
+            if left_word in keywords:
+                keywords_count[left_word] += 1
+                if keywords_count[left_word] > 0:
+                    remaining_to_cover += 1
+            left += 1
+
+    return result
+
+
+A = ['apple', 'banana', 'apple', 'apple', 'dog', 'cat',
+     'apple', 'dog', 'banana', 'apple', 'cat', 'dog']
+print(all_distinct_subarray(A))
