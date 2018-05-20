@@ -7,7 +7,7 @@ class Interval:
         self.end = e
 
 
-def eraseOverlapIntervals(intervals):
+def erase_overlap_intervals(intervals):
     if not intervals:
         return 0
     intervals.sort(key=attrgetter('end'))

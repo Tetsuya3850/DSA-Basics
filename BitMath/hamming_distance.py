@@ -1,6 +1,6 @@
 
 def hamming_distance(a, b):
-    # Time complexity O(k), where k is the num of 1s in a XOR b.
+    # Time O(k), where k is the num of 1s in a XOR b.
     diff = a ^ b
     count = 0
     while diff:
