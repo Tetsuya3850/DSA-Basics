@@ -1,4 +1,5 @@
 def towers_of_hanoi(n):
+    # Time O(2^N), Space O(N), where N is the height of the tower.
     def towers_of_hanoi_helper(n, fro, to, buf):
         if n <= 0:
             return
@@ -15,4 +16,5 @@ def towers_of_hanoi(n):
     towers_of_hanoi_helper(n, towers[0], towers[2], towers[1])
     return towers
 
-print (towers_of_hanoi(3))
+
+print(towers_of_hanoi(3))

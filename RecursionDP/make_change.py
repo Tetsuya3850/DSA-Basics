@@ -1,4 +1,6 @@
 # With quarters, dimes, nickels and pennies, calculate the ways of making a change.
+# Time O(SN), Space O(SN), where S is the amount of change and N is the variation of coins.
+
 
 def make_change(change, coins):
     change_table = [[[] for _ in range(change + 1)] for _ in coins]
@@ -15,8 +17,8 @@ def make_change(change, coins):
 
     return change_table[-1][-1]
 
-print (make_change(30, [25, 10, 5, 1]))
 
+print(make_change(30, [25, 10, 5, 1]))
 
 
 def num_change(change, coins):
@@ -37,4 +39,5 @@ def num_change(change, coins):
 
     return num_change[-1]
 
-print (num_change(30, [25, 10, 5, 1]))
+
+print(num_change(30, [25, 10, 5, 1]))

@@ -1,7 +1,7 @@
 def longest_common_subsequence(s1, s2):
     m = len(s1)
     n = len(s2)
-    L = [[0 for x in range(n+1)] for x in range(m+1)]
+    L = [[0 for _ in range(n+1)] for _ in range(m+1)]
 
     for i in range(m+1):
         for j in range(n+1):

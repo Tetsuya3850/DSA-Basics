@@ -13,8 +13,8 @@ def all_subsets(A):
 print(all_subsets(['A', 'B', 'C']))
 
 
-# Time complexity O(N2^N). Space complexity O(N2^N).
 def all_subsets_recursive(A):
+    # Time complexity O(N2^N). Space complexity O(N).
     def directed_subset(to_be_selected, selected_so_far):
         if to_be_selected == len(A):
             results.append(selected_so_far)
@@ -31,8 +31,8 @@ def all_subsets_recursive(A):
 print(all_subsets_recursive(['A', 'B', 'C']))
 
 
-# Time complexity O(N2^N). Space complexity O(N2^N).
 def all_subsets_bit(A):
+    # Time complexity O(2^N). Space complexity O(N).
     def convert_int_to_set(i, A):
         subset = []
         idx = 0

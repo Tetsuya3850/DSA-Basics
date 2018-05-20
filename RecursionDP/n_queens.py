@@ -1,9 +1,9 @@
-# Write a program which returns all distinct nonattacking placements of n queens on an n * n chessboard, where n is an input to the program.
-
 def n_queens(n):
+    # Write a program which returns all distinct nonattacking placements of n queens on an n * n chessboard, where n is an input to the program.
+
     def n_queens_helper(row):
         if row == n:
-            print (columns)
+            print(columns)
             return
         for col in range(n):
             if check_valid(columns, row, col):
@@ -21,5 +21,6 @@ def n_queens(n):
 
     columns = [None] * n
     n_queens_helper(0)
+
 
 n_queens(4)
