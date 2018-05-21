@@ -1,4 +1,3 @@
-
 from collections import Counter
 
 
@@ -20,7 +19,6 @@ def create_bit_vector(phrase):
 def toggle(bit_vector, x):
     if x < 0:
         return bit_vector
-
     mask = 1 << x
     return bit_vector ^ mask
 
