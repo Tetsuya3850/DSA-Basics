@@ -15,7 +15,7 @@ def pathSum(root, target):
 
 
 def pathSumOptimal(root, target):
-    # Time O(N), Space O(logN), where W is the num of nodes in the tree.
+    # Time O(N), Space O(H), where W is the num of nodes in the tree and H is the height of the tree.
     def helper(node, cur, target,  path_table):
         if not node:
             return 0

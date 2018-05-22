@@ -79,7 +79,7 @@ class Graph:
                     c[neighbour] += 1
             return c
 
-        def add_non_dependent():
+        def add_non_dependent(inbound_counter, process_next):
             add = []
             for key, value in inbound_counter.items():
                 if value == 0:
@@ -91,22 +91,22 @@ class Graph:
         order = []
         process_next = deque()
         inbound_counter = inbound_count()
-        add_non_dependent()
+        add_non_dependent(inbound_counter, process_next)
         while process_next:
             vertex = process_next.popleft()
             for neighbour in vertex.adjacent:
                 inbound_counter[neighbour] -= 1
             order.append(vertex.name)
-            add_non_dependent()
+            add_non_dependent(inbound_counter, process_next)
         return order if len(order) == len(self.vertexes) else 'Cycle!'
 
     def toplogical_sort_alternative(self):
         # Time O(V + E), Space O(V), where V is the num of vertexes and E is the num of edges.
-        def toplogical_sort_util(v):
+        def toplogical_sort_util(v, stack):
             visited.add(v)
             for neighbour in v.adjacent:
                 if neighbour not in visited:
-                    toplogical_sort_util(neighbour)
+                    toplogical_sort_util(neighbour, stack)
             stack.append(v.name)
 
         if self.isCyclic():
@@ -115,7 +115,7 @@ class Graph:
         stack = []
         for vertex in self.vertexes:
             if vertex not in visited:
-                toplogical_sort_util(vertex)
+                toplogical_sort_util(vertex, stack)
         return stack[::-1]
 
     def has_path_BFS_bidirectional(self, start, end):

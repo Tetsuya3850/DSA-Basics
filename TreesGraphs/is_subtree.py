@@ -15,7 +15,7 @@ def get_preorder(root):
         if not node:
             A.append('X')
             return
-        A.append(str(node.data))
+        A.append(str(node.data) + " ")
         helper(node.left)
         helper(node.right)
 
@@ -24,7 +24,7 @@ def get_preorder(root):
     return "".join(A)
 
 
-def is_subtree_optimal(t1, t2):
+def is_subtree_alternative(t1, t2):
     # Time O(N + kM), Space O(log(N)), where N, M is the num of nodes in t1, t2.
     # And k is the num of nodes in t2 that match t1's root.
     def is_subtree_helper(t1, t2):
@@ -75,4 +75,4 @@ root.right.left.right.right = BinaryTreeNode(257)
 root.right.left.right.left.right = BinaryTreeNode(641)
 
 print(is_subtree(root, root.left.right))
-print(is_subtree_optimal(root, root.left.right))
+print(is_subtree_alternative(root, root.left.right))
