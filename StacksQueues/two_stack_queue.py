@@ -16,7 +16,7 @@ class Queue:
         return self.dequeue_stack.pop()
 
     def shift_stack(self):
-        # Time O(k), Space O(1), where N is the length of enqueue_stack.
+        # Time O(k), Space O(1), where k is the length of enqueue_stack.
         if not self.dequeue_stack:
             while self.enqueue_stack:
                 self.dequeue_stack.append(self.enqueue_stack.pop())

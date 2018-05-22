@@ -1,6 +1,19 @@
-# Given two lists, one of names/frequencies and the other of pairs of equivalent names, write an algorithm to print a new list of the true frquency of each name.
-
 from collections import defaultdict
+
+
+def baby_names(name_frequency, same_names):
+    # Given two lists, one of names/frequencies and the other of pairs of equivalent names, write an algorithm to print a new list of the true frquency of each name.
+    # Time O(B+P), where B is the num of babies and P is the pair of same names.
+    g = Graph()
+    for synonyms in same_names:
+        g.addEdge(synonyms[0], synonyms[1])
+    visited = set()
+    unified_dict = defaultdict(int)
+    for node in g.graph.keys():
+        if node not in visited:
+            unified_dict[node] = add_all_synonyms(
+                node, visited, name_frequency, g)
+    return unified_dict
 
 
 class Graph:
@@ -13,19 +26,6 @@ class Graph:
         self.graph[v].append(u)
         self.nodes.add(u)
         self.nodes.add(v)
-
-
-def baby_names(name_frequency, same_names):
-    g = Graph()
-    for synonyms in same_names:
-        g.addEdge(synonyms[0], synonyms[1])
-    visited = set()
-    unified_dict = defaultdict(int)
-    for node in g.graph.keys():
-        if node not in visited:
-            unified_dict[node] = add_all_synonyms(
-                node, visited, name_frequency, g)
-    return unified_dict
 
 
 def add_all_synonyms(vertex, visited, name_frequency, g, ):

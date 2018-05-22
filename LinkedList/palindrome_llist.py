@@ -4,7 +4,7 @@
 def palindrome_llist(llist):
     # Time O(N), Space O(N), where N is the length of the linkedlist.
     def is_palindrome_recurse(head, leng):
-        if head == None and leng <= 0:
+        if head == None or leng <= 0:
             return Result(head, True)
         elif leng == 1:
             return Result(head.next, True)
