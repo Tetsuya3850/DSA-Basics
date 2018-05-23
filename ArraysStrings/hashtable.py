@@ -1,5 +1,6 @@
 class HashNode:
     def __init__(self, key, value):
+        self.next = None
         self.key = key
         self.value = value
 
@@ -23,7 +24,9 @@ class HashTable:
         if not self.table[bucket]:
             self.table[bucket] = HashNode(key, value)
         else:
-            self.table[bucket].next = HashNode(key, value)
+            new_node = HashNode(key, value)
+            new_node.next = self.table[bucket]
+            self.table[bucket] = new_node
 
     def find(self, key):
         # Find value from key.
@@ -62,6 +65,6 @@ my_hash = HashTable()
 my_hash.add('apple', '2$')
 my_hash.add('banana', '3$')
 print(my_hash.find('apple'))
-print(my_hash.find('orange'))
+print(my_hash.find('banana'))
 my_hash.delete('banana')
 print(my_hash.find('banana'))

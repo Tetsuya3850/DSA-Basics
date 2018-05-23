@@ -19,10 +19,10 @@ class Graph:
 
     def path_BFS(self, start, end):
         # Time O(k^q). Space O(k^q), where k is the avg num of edges per vertex and q is the length of path.
-        visited = set()
-        visited.add(start)
         queue = deque()
         queue.append((start, [start.name]))
+        visited = set()
+        visited.add(start)
         while queue:
             vertex, path = queue.popleft()
             for neighbour in vertex.adjacent:
