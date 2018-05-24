@@ -12,10 +12,10 @@ class Vertex:
 
 class Graph:
     def __init__(self):
-        self.vertexes = []
+        self.vertices = []
 
     def addVertex(self, vertex):
-        self.vertexes.append(vertex)
+        self.vertices.append(vertex)
 
     def path_BFS(self, start, end):
         # Time O(k^q). Space O(k^q), where k is the avg num of edges per vertex and q is the length of path.
@@ -47,7 +47,7 @@ class Graph:
         return has_path_DFS_helper(start, end)
 
     def isCyclic(self):
-        # Time O(V + E), Space O(V), where V is the num of vertexes and E is the num of edges.
+        # Time O(V + E), Space O(V), where V is the num of vertices and E is the num of edges.
         def isCyclicUtil(v):
             visited.add(v)
             currRec.add(v)
@@ -62,19 +62,19 @@ class Graph:
 
         visited = set()
         currRec = set()
-        for vertex in self.vertexes:
+        for vertex in self.vertices:
             if vertex not in visited:
                 if isCyclicUtil(vertex):
                     return True
         return False
 
     def toplogical_sort(self):
-        # Time O(V + E), Space O(V+E), where V is the num of vertexes and E is the num of edges.
+        # Time O(V + E), Space O(V+E), where V is the num of vertices and E is the num of edges.
         def inbound_count():
             c = Counter()
-            for vertex in self.vertexes:
+            for vertex in self.vertices:
                 c[vertex] = 0
-            for vertex in self.vertexes:
+            for vertex in self.vertices:
                 for neighbour in vertex.adjacent:
                     c[neighbour] += 1
             return c
@@ -98,10 +98,10 @@ class Graph:
                 inbound_counter[neighbour] -= 1
             order.append(vertex.name)
             add_non_dependent(inbound_counter, process_next)
-        return order if len(order) == len(self.vertexes) else 'Cycle!'
+        return order if len(order) == len(self.vertices) else 'Cycle!'
 
     def toplogical_sort_alternative(self):
-        # Time O(V + E), Space O(V), where V is the num of vertexes and E is the num of edges.
+        # Time O(V + E), Space O(V), where V is the num of vertices and E is the num of edges.
         def toplogical_sort_util(v, stack):
             visited.add(v)
             for neighbour in v.adjacent:
@@ -113,7 +113,7 @@ class Graph:
             return False
         visited = set()
         stack = []
-        for vertex in self.vertexes:
+        for vertex in self.vertices:
             if vertex not in visited:
                 toplogical_sort_util(vertex, stack)
         return stack[::-1]
