@@ -13,3 +13,60 @@ def add(a, b):
 
 
 print(add(3, 9))
+
+
+def multiply(x, y):
+    # Time O(N^2), where N is the number of bits needed to represent the operands.
+    running_sum = 0
+    while x:
+        if x & 1:
+            running_sum = add(running_sum, y)
+        x, y = x >> 1, y << 1
+    return running_sum
+
+
+print(multiply(3, 9))
+
+
+def divide(x, y):
+    result = 0
+    power = 32
+    y_power = y << power
+    while x >= y:
+        while y_power > x:
+            y_power >>= 1
+            power -= 1
+
+        result += 1 << power
+        x -= y_power
+    return result
+
+
+print(divide(81, 9))
+
+
+def power(x, y):
+    result = 1.0
+    power = y
+    if y < 0:
+        power, x = -power, 1.0/x
+    while power:
+        if power & 1:
+            result *= x
+        x, power = x * x, power >> 1
+    return result
+
+
+print(power(2, 3))
+
+
+def reverse(x):
+    result = 0
+    x_remain = abs(x)
+    while x_remain:
+        result = result * 10 + x_remain % 10
+        x_remain //= 10
+    return -result if x < 0 else result
+
+
+print(reverse(-314))
