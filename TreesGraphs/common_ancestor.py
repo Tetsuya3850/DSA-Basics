@@ -45,3 +45,14 @@ root.right.left.right = BinaryTreeNode(1)
 root.right.right.right = BinaryTreeNode(28)
 
 print(common_ancestor(root, root.left.left, root.left.right))
+
+
+def LCA_bst(tree, s, b):
+    # Least Common Ancestor for bst.
+    # Time O(H), where H is the height of the tree.
+    while tree.data < s.data or tree.data > b.data:
+        while tree.data < s.data:
+            tree = tree.right
+        while tree.data > b.data:
+            tree = tree.left
+    return tree

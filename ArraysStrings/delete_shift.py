@@ -17,14 +17,14 @@ print(array_key_delete([3, 11, 2, 3, 3, 7, 13, 3], 3))
 def remove_duplicates(nums):
     # Remove all duplicate ints and make the elements unique, in-place.
     # Time O(N), Space O(1), where N is the length of the array.
-    write_index = 0
-    for i in range(len(nums)-1):
-        if nums[i] != nums[i+1]:
+    if not nums:
+        return
+    write_index = 1
+    for i in range(1, len(nums)):
+        if nums[write_index-1] != nums[i]:
             nums[write_index] = nums[i]
             write_index += 1
-    nums[write_index] = nums[-1]
-    write_index += 1
     return nums[:write_index]
 
 
-print(remove_duplicates([1, 2, 2, 3, 4, 4, 4, 5, 5]))
+print(remove_duplicates([1, 2, 2, 3, 4, 4, 4, 5]))

@@ -17,16 +17,25 @@ print(dic)
 
 
 def random_set(A, m):
-    # Time complexity O(N). Space complexity O(1), where N is the legth of the array.
-    subset = A[:m]
-    for i in range(m, len(A)):
-        k = random.randint(0, i)
-        if k < m:
-            subset[k] = A[i]
-    return subset
+    # Time complexity O(m). Space complexity O(1), where m is the length of randome set.
+    for i in range(m):
+        r = random.randint(i, len(A) - 1)
+        A[i], A[r] = A[r], A[i]
+    return A[:m]
 
 
 dic2 = defaultdict(int)
 for _ in range(720000):
     dic2[tuple(random_set([1, 2, 3, 4], 2))] += 1
 print(dic2)
+
+
+def continuous_random(it, k):
+    sampling_results = [1] * k
+    num_seen_so_far = k
+    for x in it:
+        num_seen_so_far += 1
+        idx_to_replace = random.randrange(num_seen_so_far)
+        if idx_to_replace < k:
+            sampling_results[idx_to_replace] = x
+    return sampling_results

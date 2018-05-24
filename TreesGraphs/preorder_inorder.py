@@ -9,6 +9,7 @@ class TreeNode:
 
 
 def buildTree(preorder, inorder):
+    # All keys are unique.
     # Time O(N), Space O(H), where N is the num of nodes and H is the height of the tree.
     def helper(preorder, l_pre, r_pre, inorder, l_in, r_in, lookup):
         if l_pre > r_pre or l_in > r_in:
