@@ -1,5 +1,6 @@
 
 def remove_duplicates(L):
+    # Given linkedlist is sorted.
     # Time O(N)
     it = L
     while it:
