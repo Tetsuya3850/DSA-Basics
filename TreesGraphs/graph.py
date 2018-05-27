@@ -118,30 +118,6 @@ class Graph:
                 toplogical_sort_util(vertex, stack)
         return stack[::-1]
 
-    def has_path_BFS_bidirectional(self, start, end):
-        # Time O(k^q/2). Space O(k^q/2), where k is the avg num of edges per vertex and q is the length of path.
-        def BFS_once(queue, visited):
-            vertex = queue.popleft()
-            for neighbour in vertex.adjacent:
-                if neighbour not in visited:
-                    queue.append(neighbour)
-                    visited.add(neighbour)
-
-        visited_1 = set()
-        visited_2 = set()
-        visited_1.add(start)
-        visited_2.add(end)
-        queue_1 = deque()
-        queue_2 = deque()
-        queue_1.append(start)
-        queue_2.append(end)
-        while queue_1 and queue_2:
-            BFS_once(queue_1, visited_1)
-            BFS_once(queue_2, visited_2)
-            if visited_1 & visited_2:
-                return True
-        return False
-
 
 g = Graph()
 a = Vertex('A')
@@ -168,4 +144,3 @@ print(g.has_path_DFS(a, d))
 print(g.isCyclic())
 print(g.toplogical_sort())
 print(g.toplogical_sort_alternative())
-print(g.has_path_BFS_bidirectional(a, d))
