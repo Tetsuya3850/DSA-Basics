@@ -44,6 +44,28 @@ def reconstruct_preorder_marked(preorder):
     return helper(iter(preorder))
 
 
+def valid_serialization(preorder):
+    # Time O(N), where N is the num of nodes in tree.
+    def helper(iter):
+        root_key = next(iter, None)
+        if root_key == None:
+            nonlocal result
+            result = False
+            return
+        elif root_key == '#':
+            return
+        helper(iter)
+        helper(iter)
+
+    result = True
+    preorder_ar = preorder.split(',')
+    it = iter(preorder_ar)
+    helper(it)
+    if next(it, None) != None:
+        result = False
+    return result
+
+
 def reconstruct_preorder_bst(preorder):
     def helper(preorder, start, end):
         if start > end:
