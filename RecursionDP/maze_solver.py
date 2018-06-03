@@ -21,5 +21,29 @@ def maze_solver(A, start, end):
     else:
         return 'No path!'
 
+
 A = [[1, 1, 1, 1], [1, 1, 0, 1], [0, 1, 0, 1], [1, 1, 0, 1]]
-print (maze_solver(A, 0, 0))
+print(maze_solver(A, 0, 0))
+
+
+def get_path(maze):
+    # Time O(XY)
+    def helper(maze, row, col, path, failed_points):
+        if row < 0 or col < 0 or maze[row][col] == 0:
+            return False
+        if (row, col) in failed_points:
+            return False
+        if (row == 0 and col == 0) or helper(maze, row, col-1, path, failed_points) or helper(maze, row-1, col, path, failed_points):
+            path.append((row, col))
+            return True
+        failed_points.add((row, col))
+        return False
+
+    path = []
+    failed_points = set()
+    if helper(maze, len(maze)-1, len(maze[0])-1, path, failed_points):
+        return path
+    return None
+
+
+print(get_path(A))
