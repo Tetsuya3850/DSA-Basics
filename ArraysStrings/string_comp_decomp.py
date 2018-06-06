@@ -1,3 +1,4 @@
+
 def string_compression(s):
     # Time complexity O(N), Space complexity O(1), where N is the length of string.
     result = []

@@ -16,7 +16,6 @@ print(add(3, 9))
 
 
 def multiply(x, y):
-    # Time O(N^2), where N is the number of bits needed to represent the operands.
     running_sum = 0
     while x:
         if x & 1:

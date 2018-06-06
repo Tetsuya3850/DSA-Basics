@@ -25,7 +25,6 @@ def all_distinct_subarray(paragraph):
                 if keywords_count[left_word] > 0:
                     remaining_to_cover += 1
             left += 1
-
     return result
 
 

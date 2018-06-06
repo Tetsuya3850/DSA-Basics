@@ -1,6 +1,6 @@
-# Given a real number between 0 and 1 that is passed in as a double, print the binary representation. If the number cannot be represented accurately in binary with at most 32 characters, print "ERROR"
 
 def floating_to_binary(n):
+    # Given a real number between 0 and 1 that is passed in as a double, print the binary representation.
     if n >= 1 or n <= 0:
         return False
     result = ['.']
@@ -15,4 +15,5 @@ def floating_to_binary(n):
             result.append('0')
     return ''.join(result)
 
-print (floating_to_binary(0.890625))
+
+print(floating_to_binary(0.890625))
