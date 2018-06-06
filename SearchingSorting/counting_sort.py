@@ -1,3 +1,4 @@
+
 def counting_sort(A):
     # Time O(N+k), Space O(N+k), where N is the length of the array and k is the range of nums.
     count_table = [0] * 10

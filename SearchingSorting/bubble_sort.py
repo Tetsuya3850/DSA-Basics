@@ -1,3 +1,4 @@
+
 def bubble_sort(A):
     # Time complexity O(N^2) Space complexity O(1)
     is_sorted = False

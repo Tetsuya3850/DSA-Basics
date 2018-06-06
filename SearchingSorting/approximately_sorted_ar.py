@@ -12,6 +12,7 @@ def sort_approximately_sorted_array(sequence, k):
     while i < len(sequence):
         smallest = heapq.heappushpop(min_heap, sequence[i])
         print(smallest)
+        i += 1
 
     while min_heap:
         smallest = heapq.heappop(min_heap)

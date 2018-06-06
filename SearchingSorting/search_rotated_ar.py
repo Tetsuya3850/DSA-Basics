@@ -32,3 +32,27 @@ def search_rotated_ar(nums, target):
 
 
 print(search_rotated_ar([4, 5, 6, 7, 0, 1, 2], 5))
+
+
+def find_cyclically_sorted(A, k):
+    l, r = 0, len(A) - 1
+    while l <= r:
+        mid = (l + r) // 2
+        if A[mid] == k:
+            return mid
+        elif A[l] < A[mid]:
+            if k >= A[l] and k < A[mid]:
+                r = mid - 1
+            else:
+                l = mid + 1
+        else:
+            if k > A[mid] and k <= A[r]:
+                l = mid + 1
+            else:
+                r = mid - 1
+    return False
+
+
+A = [378, 478, 550, 631, 103, 203, 220, 234, 279, 368]
+k = 220
+print(find_cyclically_sorted(A, k))
