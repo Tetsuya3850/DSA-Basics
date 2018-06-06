@@ -1,19 +1,20 @@
-from collections import defaultdict
+
+from collections import Counter
 
 
 def pair_sum(A, goal_sum):
     # Design an algorithm to find all paris of integers within an array which sum to a specified value.
     # Elements can only be used once.
     # Time O(N), Space O(N), where N is the length of array.
-    complementary_dict = defaultdict(int)
+    complementary_count = Counter()
     results = []
     for num in A:
         complementary = goal_sum - num
-        if num in complementary_dict and complementary_dict[num] > 0:
+        if num in complementary_count and complementary_count[num] > 0:
             results.append([num, complementary])
-            complementary_dict[num] -= 1
+            complementary_count[num] -= 1
         else:
-            complementary_dict[complementary] += 1
+            complementary_count[complementary] += 1
     return results
 
 

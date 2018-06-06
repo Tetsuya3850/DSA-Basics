@@ -1,5 +1,4 @@
 
-
 def max_trap_water(heights):
     # Time O(N), Space O(1), where N is the num of length.
     i = 0

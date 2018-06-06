@@ -1,4 +1,6 @@
+
 def rotate(matrix):
+    # Time O(N), Space O(1), where N is the num of elements in matrix.
     N = len(matrix)
     for offset in range(N // 2):
         for shift in range(N - offset*2 - 1):

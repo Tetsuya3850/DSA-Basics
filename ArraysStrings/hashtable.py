@@ -1,3 +1,4 @@
+
 class HashNode:
     def __init__(self, key, value):
         self.next = None

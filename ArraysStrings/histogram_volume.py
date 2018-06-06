@@ -1,6 +1,6 @@
 
-
 def histogram_volume(histogram):
+    # Time O(N), Space O(N), where N is the length of the histogram.
     left_maxes = [None] * len(histogram)
     left_max = histogram[0]
     for i in range(len(histogram)):

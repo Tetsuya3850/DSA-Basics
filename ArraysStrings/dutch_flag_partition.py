@@ -1,5 +1,4 @@
 
-
 def dutch_flag_partition(index, A):
     # Time O(N), Space O(1), where N is the length of the array.
     pivot = A[index]

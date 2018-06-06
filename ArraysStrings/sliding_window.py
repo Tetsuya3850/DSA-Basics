@@ -6,22 +6,19 @@ def all_distinct_subarray(paragraph):
     # Time O(N), Space O(k), where N is the length of the array and k is the num of distinct keywords.
     keywords = set(paragraph)
     keywords_count = Counter(keywords)
-    result = [-1, -1]
+    result = (-1, -1)
     remaining_to_cover = len(keywords)
     left = 0
     right = 0
-    while right < len(paragraph):
-        while right < len(paragraph) and remaining_to_cover > 0:
-            next_word = paragraph[right]
-            if next_word in keywords:
-                keywords_count[next_word] -= 1
-                if keywords_count[next_word] >= 0:
-                    remaining_to_cover -= 1
-            right += 1
+    for right, p in enumerate(paragraph):
+        if p in keywords:
+            keywords_count[p] -= 1
+            if keywords_count[p] == 0:
+                remaining_to_cover -= 1
 
         while remaining_to_cover == 0:
-            if result == [-1, -1] or (right - left) < (result[1] - result[0]):
-                result = [left, right]
+            if result == (-1, -1) or (right - left) < (result[1] - result[0]):
+                result = (left, right)
             left_word = paragraph[left]
             if left_word in keywords:
                 keywords_count[left_word] += 1
@@ -29,7 +26,7 @@ def all_distinct_subarray(paragraph):
                     remaining_to_cover += 1
             left += 1
 
-    return A[result[0]: result[1]]
+    return result
 
 
 A = ['apple', 'banana', 'apple', 'apple', 'dog', 'cat',

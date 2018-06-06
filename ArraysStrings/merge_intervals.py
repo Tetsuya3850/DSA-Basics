@@ -1,4 +1,7 @@
 
+from operator import attrgetter
+
+
 class Interval:
     def __init__(self, left, right):
         self.left = left
@@ -19,9 +22,6 @@ def add_interval(intervals, new_interval):
         i += 1
 
     return result + [new_interval] + intervals[i:]
-
-
-from operator import attrgetter
 
 
 def union_intervals(intervals):

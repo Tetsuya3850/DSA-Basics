@@ -2,7 +2,6 @@
 def next_permutation(A):
     # Compute the next permutation under dictionary ordering.
     # Time O(N), Space O(1), where N is the length of the array.
-
     inversion_point = len(A) - 1
     while (inversion_point >= 1 and A[inversion_point] <= A[inversion_point - 1]):
         inversion_point -= 1

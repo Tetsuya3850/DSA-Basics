@@ -1,5 +1,4 @@
 
-
 def majority_element(A):
     # Given a positive integers array, find the majority element.
     # Time O(N), Space O(1), where N is the length of the array.
