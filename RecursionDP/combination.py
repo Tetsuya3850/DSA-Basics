@@ -11,7 +11,6 @@ def combination(n, k):
         elif k == n:
             return [[i for i in range(1, n+1)]]
         if (n, k) not in cache:
-            results = []
             without_n = helper(n-1, k)
             with_n = helper(n-1, k-1)
             for comb in with_n:
