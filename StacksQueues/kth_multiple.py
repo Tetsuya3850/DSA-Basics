@@ -1,3 +1,4 @@
+
 from collections import deque
 INT_MAX = 4294967296
 
@@ -12,7 +13,6 @@ def kth_multiple_357(k):
     five_queue = deque()
     seven_queue = deque()
     three_queue.append(1)
-
     for _ in range(k):
         v3 = three_queue[0] if len(three_queue) > 0 else INT_MAX
         v5 = five_queue[0] if len(five_queue) > 0 else INT_MAX
@@ -28,7 +28,6 @@ def kth_multiple_357(k):
         else:
             seven_queue.popleft()
         seven_queue.append(val * 7)
-
     return val
 
 
