@@ -1,5 +1,4 @@
 
-
 def levenshtein_dist(A, B):
     def compute_prefix_dist(A_idx, B_idx):
         if A_idx < 0:

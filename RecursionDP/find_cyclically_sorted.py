@@ -1,3 +1,4 @@
+
 def find_cyclically_sorted(A, k):
     l, r = 0, len(A) - 1
     while l <= r:
@@ -16,9 +17,10 @@ def find_cyclically_sorted(A, k):
                 r = mid - 1
     return False
 
+
 A = [378, 478, 550, 631, 103, 203, 220, 234, 279, 368]
 k = 220
-print (find_cyclically_sorted(A, k))
+print(find_cyclically_sorted(A, k))
 
 
 def find_cyclically_sorted_nonu(A, k):
@@ -52,6 +54,7 @@ def find_cyclically_sorted_nonu(A, k):
 
     return cyclically_sorted_helper(A, 0, len(A) - 1, k)
 
+
 A = [2, 2, 2, 3, 4, 2]
 k = 2
-print (find_cyclically_sorted_nonu(A, k))
+print(find_cyclically_sorted_nonu(A, k))

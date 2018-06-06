@@ -1,5 +1,4 @@
 
-
 def max_coin_take(coins):
     def max_coin_range(a, b):
         if a > b:

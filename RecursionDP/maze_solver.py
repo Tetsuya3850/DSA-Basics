@@ -1,3 +1,4 @@
+
 def maze_solver(A, start, end):
     def isSafe(A, r, c):
         return r < len(A) and c < len(A[0]) and A[r][c]

@@ -62,8 +62,8 @@ all_permutations_non_unique('aabc')
 
 
 def all_anagrams(s, trie_dict):
+    # Time complexity O(N^2N!), Space complexity O(N), where N is the length of ths string.
     def all_anagrams_helper(partial_result, remaining_s):
-        # Time complexity O(N^2N!), Space complexity O(N), where N is the length of ths string.
         if len(partial_result) == len(s):
             if trie_dict.search(partial_result):
                 print(partial_result)

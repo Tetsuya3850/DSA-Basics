@@ -1,5 +1,4 @@
 
-
 def largest_contiguous_subsequence(A):
     # Time O(N), Space O(1), where N is the length of the array.
     max_sum = 0

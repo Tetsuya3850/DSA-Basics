@@ -1,3 +1,4 @@
+
 def all_subsets(A):
     # Time complexity O(N2^N). Space complexity O(N2^N).
     results = []
