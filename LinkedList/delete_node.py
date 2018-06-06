@@ -1,5 +1,4 @@
 
-
 def delete_node(node):
     # Time O(1)
     if node.next:

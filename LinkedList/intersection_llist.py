@@ -1,3 +1,4 @@
+
 def intersection_llist(llist1, llist2):
     # Time O(A+B), Space O(1), where A, B is the length of the linkedlists.
     len1 = llist1.size()

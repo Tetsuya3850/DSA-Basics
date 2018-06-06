@@ -1,7 +1,6 @@
-# Check whether linked list is palindrome.
-
 
 def palindrome_llist(llist):
+    # Check whether linked list is palindrome.
     # Time O(N), Space O(N), where N is the length of the linkedlist.
     def is_palindrome_recurse(head, leng):
         if head == None or leng <= 0:

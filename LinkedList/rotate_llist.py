@@ -1,5 +1,4 @@
 
-
 def cyclically_right_shift_list(L, k):
     # Time O(N), Space O(1), where N is the length of the linkedlist.
     if not L:

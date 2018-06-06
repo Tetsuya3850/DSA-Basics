@@ -1,3 +1,4 @@
+
 class Node:
     def __init__(self, data=0, next_node=None):
         self.data = data
@@ -30,18 +31,17 @@ class LinkedList:
             return slow
 
         def sorted_merge(l, r):
-            result = None
-            if not l:
-                return r
-            if not r:
-                return l
-            if l.data <= r.data:
-                result = l
-                result.next = sorted_merge(l.next, r)
-            else:
-                result = r
-                result.next = sorted_merge(l, r.next)
-            return result
+            dummy_head = tail = Node()
+            while l and r:
+                if l.data < r.data:
+                    tail.next = l
+                    l = l.next
+                else:
+                    tail.next = r
+                    r = r.next
+                tail = tail.next
+            tail.next = l or r
+            return dummy_head.next
 
         def helper(head):
             if not head or not head.next:
