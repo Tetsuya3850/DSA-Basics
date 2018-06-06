@@ -1,4 +1,5 @@
-def isSymmetric(root):
+
+def is_symmetric(root):
     def helper(left, right):
         # Time O(N), Space O(H), where N is the num of nodes in tree and H is the height of the tree.
         if not left and not right:

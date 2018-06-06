@@ -1,7 +1,7 @@
 from collections import defaultdict
 
 
-def pathSum(root, target):
+def path_sum(root, target):
     # Time O(NlogN), Space O(H), where W is the num of nodes in the tree and H is the height of the tree.
     def helper(node, target, cur):
         if not node:
@@ -11,10 +11,10 @@ def pathSum(root, target):
 
     if not root:
         return 0
-    return helper(root, target, 0) + pathSum(root.left, target) + pathSum(root.right, target)
+    return helper(root, target, 0) + path_sum(root.left, target) + path_sum(root.right, target)
 
 
-def pathSumOptimal(root, target):
+def path_sum_optimal(root, target):
     # Time O(N), Space O(H), where W is the num of nodes in the tree and H is the height of the tree.
     def helper(node, cur, target,  path_table):
         if not node:

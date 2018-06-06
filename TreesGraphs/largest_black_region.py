@@ -7,16 +7,11 @@ def largest_black_region(matrix):
     # Time O(WH) where W is the width and H is the height of matrix.
     visited = set()
     max_region = 0
-    r, c = 0, 0
-    while r < len(matrix) and c < len(matrix[0]):
-        if matrix[r][c] and (r, c) not in visited:
-            curr_region = dfs(r, c, matrix, visited)
-            max_region = max(max_region, curr_region)
-        if r < len(matrix) - 1:
-            r += 1
-        else:
-            r = 0
-            c += 1
+    for r in range(len(matrix)):
+        for c in range(len(matrix[0])):
+            if matrix[r][c] and (r, c) not in visited:
+                curr_region = dfs(r, c, matrix, visited)
+                max_region = max(max_region, curr_region)
     return max_region
 
 

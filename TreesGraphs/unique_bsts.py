@@ -1,3 +1,4 @@
+
 from collections import defaultdict
 
 
@@ -8,7 +9,7 @@ class TreeNode:
         self.right = None
 
 
-def numTrees(n):
+def num_trees(n):
     # Given n, how many structurally unique BST's that store values 1 ... n?
     # Time O(N^2), Space O(N), where n is the given number.
     def helper(n, cache):
@@ -25,7 +26,7 @@ def numTrees(n):
     return helper(n, cache)
 
 
-def generateTrees(n):
+def generate_trees(n):
     # Given an integer n, generate all structurally unique BST's that store values 1 ... n.
     def helper(nums):
         if not nums:

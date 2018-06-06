@@ -1,7 +1,8 @@
+
 from collections import defaultdict, deque
 
 
-def minMutation(start, end, bank):
+def min_mutation(start, end, bank):
     def build_wildcard_lookup(bank):
         table = defaultdict(list)
         for gene in bank:
