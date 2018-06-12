@@ -22,36 +22,42 @@ print(string_compression('abcd'))
 
 
 def string_decompression(s):
-    def string_decompression_helper(s, i):
-        # Time complexity O(N), where N is the length of string.
-        result = []
-        while i < len(s):
-            if s[i].islower():
-                single_text = []
-                while i < len(s) and s[i].islower():
-                    single_text.append(s[i])
-                    i += 1
-                result.append(''.join(single_text))
-            else:
-                sub_times = 0
-                while s[i].isdigit():
-                    sub_times = sub_times * 10 + int(s[i])
-                    i += 1
-                i += 1
-                sub_text = []
-                while i < len(s) and s[i] != ']':
-                    if s[i].islower():
-                        sub_text.append(s[i])
-                    else:
-                        recur_text = string_decompression_helper(s, i)
-                        sub_text.append(recur_text)
-                    i += 1
-                for _ in range(sub_times):
-                    result.append(''.join(sub_text))
-            i += 1
-        return ''.join(result)
+    class Result:
+        def __init__(self, decoded_str, end_i):
+            self.decoded_str = decoded_str
+            self.end_i = end_i
 
-    return string_decompression_helper(s, 0)
+    def helper(s, i):
+        duplication = 0
+        while s[i].isnumeric():
+            duplication *= 10
+            duplication += int(s[i])
+            i += 1
+        result = []
+        if duplication == 0:
+            while i < len(s) and not s[i].isnumeric():
+                result.append(s[i])
+                i += 1
+            return Result("".join(result), i)
+        else:
+            i += 1
+            while s[i] != ']':
+                if s[i].isnumeric():
+                    part_result = helper(s, i)
+                    result.append(part_result.decoded_str)
+                    i = part_result.end_i
+                else:
+                    result.append(s[i])
+                    i += 1
+            return Result(duplication * "".join(result), i + 1)
+
+    decoded = []
+    i = 0
+    while i < len(s):
+        part_result = helper(s, i)
+        decoded.append(part_result.decoded_str)
+        i = part_result.end_i
+    return "".join(decoded)
 
 
 print(string_decompression('3[abc]4[ab]c'))
