@@ -34,3 +34,20 @@ def longest_common_subsequence(s1, s2):
 
 
 print(longest_common_subsequence("AGGTAB", "GXTXAYB"))
+
+
+def longest_common_substring(A, B):
+    dp = [[0 for _ in range(len(B) + 1)] for _ in range(len(A) + 1)]
+    max_length = 0
+    max_length_last_index = None
+    for i in range(1, len(A) + 1):
+        for j in range(1, len(B) + 1):
+            if A[i - 1] == B[j - 1]:
+                dp[i][j] = dp[i - 1][j - 1] + 1
+                if dp[i][j] > max_length:
+                    max_length = dp[i][j]
+                    max_length_last_index = i
+    return A[max_length_last_index - max_length: max_length_last_index]
+
+
+print(longest_common_substring("abcdaf", "zbcdf"))
