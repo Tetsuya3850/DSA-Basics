@@ -1,6 +1,6 @@
 
 def string_compression(s):
-    # Time complexity O(N), Space complexity O(1), where N is the length of string.
+    # Time complexity O(N), Space complexity O(1), where N is the length of the string.
     result = []
     count_consecutive = 0
     for i in range(len(s)):

@@ -1,6 +1,6 @@
 
-def rotate(matrix):
-    # Time O(N), Space O(1), where N is the num of elements in matrix.
+def rotate_matrix(matrix):
+    # Time O(N^2), Space O(1), where N is the length of the side of the matrix.
     N = len(matrix)
     for offset in range(N // 2):
         for shift in range(N - offset*2 - 1):
@@ -13,4 +13,4 @@ def rotate(matrix):
     return matrix
 
 
-print(rotate([[1, 2, 3], [4, 5, 6], [7, 8, 9]]))
+print(rotate_matrix([[1, 2, 3], [4, 5, 6], [7, 8, 9]]))

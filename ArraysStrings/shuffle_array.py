@@ -4,7 +4,7 @@ from collections import defaultdict
 
 
 def shuffle_array(A):
-    # Time complexity O(N). Space complexity O(1), where N is the legth of the array.
+    # Time O(N). Space O(1), where N is the length of the array.
     for i in range(len(A)):
         k = random.randint(i, len(A) - 1)
         A[i], A[k] = A[k], A[i]

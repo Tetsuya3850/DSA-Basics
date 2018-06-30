@@ -27,7 +27,6 @@ def add_interval(intervals, new_interval):
 def union_intervals(intervals):
     if not intervals:
         return []
-
     intervals.sort(key=attrgetter('right'))
     result = [intervals[0]]
     for interval in intervals:

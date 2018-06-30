@@ -3,9 +3,7 @@ from collections import Counter
 
 
 def pair_sum(A, goal_sum):
-    # Design an algorithm to find all paris of integers within an array which sum to a specified value.
-    # Elements can only be used once.
-    # Time O(N), Space O(N), where N is the length of array.
+    # Time O(N), Space O(N), where N is the length of the array.
     complementary_count = Counter()
     results = []
     for num in A:

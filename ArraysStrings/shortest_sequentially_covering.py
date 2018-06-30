@@ -17,7 +17,6 @@ def smallest_sequentially_covering(paragraph, keywords):
                 shortest_subarray_length[keyword_idx] = distance_to_previous_keyword + \
                     shortest_subarray_length[keyword_idx-1]
             latest_occurrence[keyword_idx] = i
-
             if keyword_idx == len(keywords) - 1 and shortest_subarray_length[-1] < shortest_dist:
                 shortest_dist = shortest_subarray_length[-1]
                 result = (i-shortest_dist+1, i)

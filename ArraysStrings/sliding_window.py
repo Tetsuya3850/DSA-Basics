@@ -2,7 +2,6 @@ from collections import Counter
 
 
 def all_distinct_subarray(paragraph):
-    # Given an array A, find the shortest subarray A[i, j] such that each distinct value present in A is also present in the subarray.
     # Time O(N), Space O(k), where N is the length of the array and k is the num of distinct keywords.
     keywords = set(paragraph)
     keywords_count = Counter(keywords)
@@ -41,9 +40,27 @@ def longest_subarray_with_distinct_entries(A):
     for i, num in enumerate(A):
         if num in most_recent_occur:
             dup_idx = most_recent_occur[num]
-
             if dup_idx >= longest_dup_free_start_idx:
                 result = max(result, i - longest_dup_free_start_idx)
                 longest_dup_free_start_idx = dup_idx + 1
         most_recent_occur[num] = i
     return max(result, len(A) - longest_dup_free_start_idx)
+
+
+def longest_nondup_substring(s):
+    # Time O(N), Space O(M), where N is the length of string and M is the num of unique chars in string.
+    i, j = 0, 0
+    max_length = 0
+    chr_set = set()
+    while i < len(s) and j < len(s):
+        if s[j] not in chr_set:
+            chr_set.add(s[j])
+            j += 1
+            max_length = max(max_length, j - i)
+        else:
+            chr_set.remove(s[i])
+            i += 1
+    return max_length
+
+
+print(longest_nondup_substring('pwwkew'))
