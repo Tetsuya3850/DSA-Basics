@@ -1,6 +1,5 @@
 
 def loop_llist(llist):
-    # Given a circular linked list, implement an algorithm that returns the node at the beginning of the loop.
     # Time O(N), Space O(1), where N is the length of the linkedlist.
     fast = llist.head
     slow = llist.head

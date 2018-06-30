@@ -21,9 +21,8 @@ class Cache:
         # Time O(N), Space O(1), where N is the length of the cache.
         temp = self.tail
         while temp:
-            print(temp.data, end=' ')
+            print(temp.data)
             temp = temp.prev
-        print()
 
     def update(self, page):
         # Time O(1), Space O(1), where N is the length of the cache.

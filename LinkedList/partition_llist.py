@@ -21,7 +21,6 @@ class LinkedList:
             temp = temp.next
 
     def partition_llist(self, x):
-        # Partition a linked list around a value x.
         # Time complexity O(N). Space complexity O(N).
         it = self.head
         head_low = tail_low = Node()

@@ -1,3 +1,4 @@
+
 class Node:
     def __init__(self, data=0, next_node=None):
         self.data = data
@@ -70,13 +71,20 @@ class LinkedList:
             return False
         if temp.data == key:
             self.head = temp.next
-            return
+            return True
         while temp.next:
             if temp.next.data == key:
                 temp.next = temp.next.next
-                return
+                return True
             temp = temp.next
         return False
+
+    def printall(self):
+        # Time O(N), Space O(1), where N is the length of the linkedlist.
+        temp = self.head
+        while temp:
+            print(temp.data)
+            temp = temp.next
 
     def reverse(self):
         # Time O(N), Space O(1), where N is the length of the linkedlist.
@@ -92,23 +100,12 @@ class LinkedList:
     def reverse_part(self, m, n):
         # Time O(n), Space O(1), where n is the upper of given range.
         dummy_head = sublist_head = Node(0, self.head)
-
         for _ in range(m-1):
             sublist_head = sublist_head.next
-
         sublist_iter = sublist_head.next
         for _ in range(n-m):
             temp = sublist_iter.next
             sublist_iter.next = temp.next
             temp.next = sublist_head.next
             sublist_head.next = temp
-
         self.head = dummy_head.next
-
-    def printall(self):
-        # Time O(N), Space O(1), where N is the length of the linkedlist.
-        temp = self.head
-        while temp:
-            print(temp.data, end=" ")
-            temp = temp.next
-        print()
