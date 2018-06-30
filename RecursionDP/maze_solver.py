@@ -14,7 +14,7 @@ def maze_solver(A, start, end):
             if maze_solver_helper(A, r, c+1, path):
                 return True
             path[r][c] = 0
-            return False
+        return False
 
     path = [[0 for j in range(4)] for i in range(4)]
     if maze_solver_helper(A, 0, 0, path):
@@ -28,7 +28,6 @@ print(maze_solver(A, 0, 0))
 
 
 def get_path(maze):
-    # Time O(XY)
     def helper(maze, row, col, path, failed_points):
         if row < 0 or col < 0 or maze[row][col] == 0:
             return False
@@ -44,7 +43,8 @@ def get_path(maze):
     failed_points = set()
     if helper(maze, len(maze)-1, len(maze[0])-1, path, failed_points):
         return path
-    return None
+    else:
+        return 'No path!'
 
 
 print(get_path(A))

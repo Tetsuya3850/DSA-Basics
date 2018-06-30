@@ -4,7 +4,6 @@ INT_MAX = 4294967296
 
 
 def kth_multiple_357(k):
-    # Design an algorithm to find the kth number such that the only prime factors are 3, 5, 7.
     # Time O(k), where k is the specified order.
     if k < 0:
         return 0

@@ -1,3 +1,4 @@
+
 def insertion_sort(A):
     # Time O(N^2), Space O(1), where N is the length of the array.
     for i in range(1, len(A)):

@@ -1,7 +1,6 @@
 
 
 def max_total_period(A):
-    # A popular masseuse receives a sequence of back-to-back appointment requests and is debating which ones to accept. She needs a 15-minute break between appointments and therefore she cannot accept any adjacent requests. Given a sequence of back-to-back appointment requests (all muliples of 15 minutes, none overlap, and none can be moved), find the optimal (highest total booked minutes) set the masseuse can honor. Return the number of minutes.
     # Time O(N), Space O(N), where N is the length of the array.
     def helper(A, start, cache):
         if start >= len(A):
@@ -18,6 +17,7 @@ def max_total_period(A):
 
 
 def max_total_iter(A):
+    # Time O(N), Space O(1), where N is the length of the array.
     one_away = 0
     two_away = 0
     for i in reversed(range(len(A))):

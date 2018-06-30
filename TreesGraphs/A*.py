@@ -1,4 +1,6 @@
+
 import heapq
+
 
 class Cell:
     def __init__(self, r, c, wall):
@@ -10,6 +12,7 @@ class Cell:
         self.h = 0
         self.f = 0
 
+
 class AStar:
     def __init__(self, start, end):
         self.opened = []
@@ -20,7 +23,8 @@ class AStar:
         self.init_grid(start, end)
 
     def init_grid(self, start, end):
-        walls = ((0, 0), (0, 1), (0, 3), (1, 4), (2, 2), (3, 3), (4, 1), (4, 3), (4, 4), (4, 5), (5, 1))
+        walls = ((0, 0), (0, 1), (0, 3), (1, 4), (2, 2),
+                 (3, 3), (4, 1), (4, 3), (4, 4), (4, 5), (5, 1))
         for r in range(self.grid_height):
             for c in range(self.grid_width):
                 if (r, c) in walls:
@@ -83,6 +87,7 @@ class AStar:
                         self.update_cell(adj_cell, cell)
                         heapq.heappush(self.opened, (adj_cell.f, adj_cell))
 
+
 A = AStar((0, 5), (5, 0))
 A.solve()
-print (A.get_path())
+print(A.get_path())

@@ -1,6 +1,5 @@
 
 def valid_parens(n):
-    # Implement an algorithm to print all valid conbinations of pairs of parentheses.
     def parens_helper(partial_result, l, r):
         if l == 0 and r == 0:
             print(partial_result)

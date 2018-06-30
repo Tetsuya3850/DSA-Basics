@@ -1,7 +1,4 @@
 
-# Implement a queue with two stacks
-
-
 class Queue:
     def __init__(self):
         self.enqueue_stack = []

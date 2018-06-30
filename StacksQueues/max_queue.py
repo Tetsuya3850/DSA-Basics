@@ -1,8 +1,8 @@
+
 from collections import deque
 
 
 class QueueWithMax:
-
     def __init__(self):
         self.entries = deque()
         self.cand_max = deque()

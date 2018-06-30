@@ -5,7 +5,7 @@ from collections import defaultdict
 def all_permutations(s):
     # Time complexity O(N^2N!) Space complexity O(N!), where N is the length of ths string.
     def perm_helper(remain_s):
-        if not len(remain_s):
+        if not remain_s:
             return [""]
         ch = remain_s[0]
         without_ch = perm_helper(remain_s[1:])
@@ -23,7 +23,7 @@ print(all_permutations('abc'))
 
 
 def all_permutations_other(s):
-    # Time complexity O(NN!), Space complexity O(N), where N is the length of ths string.
+    # Time complexity O(NN!), Space complexity O(N), where N is the length of the string.
     def helper(A, l):
         if l == len(A)-1:
             print("".join(A))
@@ -32,6 +32,7 @@ def all_permutations_other(s):
             A[l], A[i] = A[i], A[l]
             helper(A, l+1)
             A[l], A[i] = A[i], A[l]
+
     helper(list(s), 0)
 
 
@@ -42,20 +43,21 @@ def all_permutations_non_unique(s):
     # Time complexity O(N^2N!), Space complexity O(N), where N is the length of ths string.
     def perm_nonu_helper(part_result, remaining_dict):
         if len(part_result) == len(s):
-            print(part_result)
+            print("".join(part_result))
             return
-
         for item in remaining_dict.keys():
             count = remaining_dict[item]
             if count > 0:
                 remaining_dict[item] -= 1
-                perm_nonu_helper(part_result + item, remaining_dict)
+                part_result.append(item)
+                perm_nonu_helper(part_result, remaining_dict)
+                part_result.pop()
                 remaining_dict[item] += 1
 
     d = defaultdict(int)
     for ch in s:
         d[ch] += 1
-    perm_nonu_helper('', d)
+    perm_nonu_helper([], d)
 
 
 all_permutations_non_unique('aabc')

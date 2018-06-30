@@ -3,7 +3,6 @@ def max_coin_take(coins):
     def max_coin_range(a, b):
         if a > b:
             return 0
-
         if max_coin_table[a][b] == 0:
             max_coin_a = coins[a] + \
                 min(max_coin_range(a+2, b), max_coin_range(a+1, b-1))

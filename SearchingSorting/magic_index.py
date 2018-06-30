@@ -1,5 +1,3 @@
-# Find a magic index, such that A[i] = i, given a sorted array of integers.
-
 
 def magic_index(A):
     # Time O(N), Space O(1), where N is the length of the array.

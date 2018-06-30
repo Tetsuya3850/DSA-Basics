@@ -1,6 +1,5 @@
-def n_queens(n):
-    # Write a program which returns all distinct nonattacking placements of n queens on an n * n chessboard, where n is an input to the program.
 
+def n_queens(n):
     def n_queens_helper(row):
         if row == n:
             print(columns)

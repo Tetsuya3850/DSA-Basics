@@ -1,5 +1,6 @@
-def search_rotated_ar(nums, target):
-    # Time O(logN), Space O(1), where N is the length of the array.
+
+def search_rotated_ar_dups(nums, target):
+    # Time O(logN), Space O(logN), where N is the length of the array.
     def helper(nums, target, left, right):
         mid = (left + right) // 2
         if nums[mid] == target:
@@ -31,10 +32,11 @@ def search_rotated_ar(nums, target):
     return helper(nums, target, 0, len(nums)-1)
 
 
-print(search_rotated_ar([4, 5, 6, 7, 0, 1, 2], 5))
+print(search_rotated_ar_dups([4, 4, 4, 7, 0, 1, 2], 4))
 
 
-def find_cyclically_sorted(A, k):
+def search_rotated_ar(A, k):
+    # Time O(logN), Space O(1), where N is the length of the array.
     l, r = 0, len(A) - 1
     while l <= r:
         mid = (l + r) // 2
@@ -55,4 +57,4 @@ def find_cyclically_sorted(A, k):
 
 A = [378, 478, 550, 631, 103, 203, 220, 234, 279, 368]
 k = 220
-print(find_cyclically_sorted(A, k))
+print(search_rotated_ar(A, k))

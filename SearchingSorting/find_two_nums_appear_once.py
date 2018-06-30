@@ -1,3 +1,4 @@
+
 def find_two_nums_appear_once(nums):
     # Time O(N), Space O(1), where N is the length of the array.
     xor = 0

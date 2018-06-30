@@ -54,6 +54,17 @@ def flip_bits(x):
     return x ^ ~0
 
 
+def reverseBits(n):
+    result = 0
+    digits = 32
+    while digits:
+        result <<= 1
+        result |= (n & 1)
+        n >>= 1
+        digits -= 1
+    return result
+
+
 def swap_odd_even_bits(n):
     return ((n & 0xaaaaaaaa) >> 1) | ((n & 0x55555555) << 1)
 

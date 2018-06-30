@@ -1,3 +1,4 @@
+
 class DoubleNode:
     def __init__(self, data=0, next_node=None, prev_node=None):
         self.data = data
@@ -62,9 +63,8 @@ class Deque:
         # Time O(N), Space O(1), where N is the length of the linkedlist.
         temp = self.head
         while temp:
-            print(temp.data, end=" ")
+            print(temp.data)
             temp = temp.next
-        print()
 
 
 deque = Deque()

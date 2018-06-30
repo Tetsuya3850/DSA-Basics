@@ -2,12 +2,10 @@ from collections import defaultdict
 
 
 def re_space(s, dictionary):
-    # Given a dictionary and the document, design an algorithm to unconcatenate the document in a way that minimizes the number of unrecognized characters.
     # Time O(N^2), Space O(N), where N is the length of string.
     def helper(s, dictionary, start, cache):
         if start >= len(s):
             return (0, "")
-
         if start not in cache:
             bestInvalid = float('inf')
             bestParsing = ""
@@ -26,7 +24,6 @@ def re_space(s, dictionary):
                             break
                 index += 1
             cache[start] = (bestInvalid, bestParsing)
-
         return cache[start]
 
     cache = defaultdict()
@@ -45,13 +42,11 @@ def decompose_dict_words(s, dictionary):
     for i in range(len(s)):
         if s[:i+1] in dictionary:
             last_length[i] = i+1
-
         if last_length[i] == -1:
             for j in range(i):
                 if last_length[j] != -1 and s[j+1: i+1] in dictionary:
                     last_length[i] = i - j
                     break
-
     decompositions = []
     if last_length[-1] != -1:
         idx = len(s) - 1

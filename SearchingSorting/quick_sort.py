@@ -1,3 +1,4 @@
+
 def quick_sort(A):
     # Time O(NlogN), Space O(logN), where N is the length of the array.
     def quick_sort_helper(A, l, r):

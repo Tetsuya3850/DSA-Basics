@@ -1,6 +1,6 @@
 
 def bubble_sort(A):
-    # Time complexity O(N^2) Space complexity O(1)
+    # Time O(N^2), Space O(1), where N is the length of the array.
     is_sorted = False
     last_unsorted = len(A) - 1
     while not is_sorted:

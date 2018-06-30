@@ -3,7 +3,6 @@ from collections import deque
 
 
 def weave_lists(A1, A2):
-    # Merge two arrays in all possible ways, while keeping the same relative order.
     def weave_lists_helper(d1, d2, prefix):
         if not d1 or not d2:
             nonlocal results

@@ -1,3 +1,4 @@
+
 def monotonic_decimal(k):
     def helper(result, k):
         if len(result) == k:

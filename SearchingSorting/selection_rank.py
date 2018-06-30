@@ -1,3 +1,4 @@
+
 def smallest_k(A, k):
     def smallest_k_helper(A, k, result):
         partition = A[0]

@@ -10,13 +10,13 @@ def knapsack(items, capacity):
     def helper(k, available):
         if k < 0:
             return 0
-
         if table[k][available] == -1:
             without_curr_item = helper(k-1, available)
             with_curr_item = (0 if available < items[k].weight else (
                 items[k].value + helper(k-1, available - items[k].weight)))
             table[k][available] = max(without_curr_item, with_curr_item)
         return table[k][available]
+
     table = [[-1 for _ in range(capacity + 1)] for _ in items]
     return helper(len(items)-1, capacity)
 

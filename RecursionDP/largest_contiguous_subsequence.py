@@ -5,9 +5,8 @@ def largest_contiguous_subsequence(A):
     curr_sum = 0
     for num in A:
         curr_sum += num
-        if max_sum < curr_sum:
-            max_sum = curr_sum
-        elif curr_sum < 0:
+        max_sum = max(max_sum, curr_sum)
+        if curr_sum < 0:
             curr_sum = 0
     return max_sum
 

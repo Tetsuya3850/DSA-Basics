@@ -1,10 +1,8 @@
 
 def num_ways(n, m, obstacles):
-    # Write a program that counts how many ways you can go from the top-left to the bottom-right in a 2D array, in the presence of obstacles.
     def helper(x, y):
         if x == y == 0:
             return 1
-
         if num_ways[x][y] == 0:
             ways_top = 0 if x == 0 or obstacles[x -
                                                 1][y] else helper(x - 1, y)

@@ -1,3 +1,4 @@
+
 from collections import defaultdict
 
 
@@ -5,8 +6,7 @@ def count_eval(s, result):
     def helper(s, result, cache):
         if len(s) == 0:
             return 0
-
-        if len(s) == 1:
+        elif len(s) == 1:
             return 1 if (bool(int(s)) == result) else 0
 
         if (s, result) not in cache:

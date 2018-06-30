@@ -1,6 +1,5 @@
 
 def longest_nondecreasing_subsequence(A):
-    # Write a program that takes as input an array of numbers and returns a longest nondecreasing subsequence in the array.
     # Time O(N^2), Space O(N^2), where N is the length of the array.
     longest_nondecreasing_subsequence = [[i] for i in A]
     for i in range(1, len(A)):

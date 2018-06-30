@@ -1,7 +1,5 @@
 
 class Min_Stack:
-    # Design a stack that could operate push, pop and min in O(1) time.
-
     def __init__(self):
         self.stack = []
         self.min_stack = []

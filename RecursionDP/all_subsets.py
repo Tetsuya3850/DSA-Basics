@@ -1,13 +1,11 @@
 
 def all_subsets(A):
-    # Time complexity O(N2^N). Space complexity O(N2^N).
+    # Time complexity O(N2^N). Space complexity O(1).
     results = []
     results.append([])
     for item in A:
-        new_results = []
-        for result in results:
-            new_results.append(result + [item])
-        results.extend(new_results)
+        for i in range(len(results)):
+            results.append(results[i] + [item])
     return results
 
 
