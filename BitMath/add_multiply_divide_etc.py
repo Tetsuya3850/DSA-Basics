@@ -1,7 +1,5 @@
 
 def add(a, b):
-    # Write a function that adds two numbers. You should not use any arithmetic operators
-    # Time O(A + B), Space O(1), where A and B is the figure of a and b in binary.
     running_sum, carryin, k, temp_a, temp_b = 0, 0, 1, a, b
     while temp_a or temp_b:
         ak, bk = a & k, b & k

@@ -1,5 +1,4 @@
-def single_number(nums):
-    # Given an array of numbers nums, in which exactly two elements appear only once and all the other elements appear exactly twice. Find the two elements that appear only once.
+def find_two_nums_appear_once(nums):
     # Time O(N), Space O(1), where N is the length of the array.
     xor = 0
     a = 0

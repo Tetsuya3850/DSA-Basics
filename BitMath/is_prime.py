@@ -3,7 +3,6 @@ import math
 
 
 def is_prime(n):
-    # Check whether number is prime.
     # Time O(sqrt(n)), Space O(1), where n is the given num.
     if n == 2:
         return True

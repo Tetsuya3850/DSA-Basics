@@ -4,20 +4,16 @@ def distPoints(p1, p2):
 
 
 def check_rectangle(A):
-    # Given four points in the plane, how would you check if they are the vertices of a rectangle?
-
     center = [0, 0]
     for p in A:
         center[0] += p[0]/4.0
         center[1] += p[1]/4.0
-
     diagonal = 0
     for p in A:
         diagonal_next = distPoints(p, center)
         if diagonal != 0 and diagonal != diagonal_next:
             return False
         diagonal = diagonal_next
-
     return True
 
 

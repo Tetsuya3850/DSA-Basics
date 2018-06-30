@@ -18,22 +18,15 @@ def is_between(start, middle, end):
 
 
 def intersection(start1, end1, start2, end2):
-    if start1.x > end1.x:
-        start1, end1 = end1, start1
-    if start2.x > end2.x:
-        start2, end2 = end2, start2
     if start1.x > start2.x:
         start1, start2 = start2, start1
         end1, end2 = end2, end1
-
     line1 = Line(start1, end1)
     line2 = Line(start2, end2)
-
     if line1.slope == line2.slope:
         if line1.yintercept == line2.yintercept and is_between(start1, start2, end1):
             return start2
         return None
-
     x = (line2.yintercept - line1.yintercept) / (line1.slope - line2.slope)
     y = x * line1.slope + line1.yintercept
     intersection = Point(x, y)

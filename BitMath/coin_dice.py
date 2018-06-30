@@ -8,7 +8,6 @@ def coin():
 
 
 def dice():
-    # Make a dice with a coin.
     while True:
         num = 4 * coin() + 2 * coin() + 1 * coin()
         if num < 6:

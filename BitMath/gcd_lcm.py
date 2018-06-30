@@ -1,7 +1,4 @@
 
-# Function to find greatest common divisor and least common multiple.
-
-
 def gcd(a, b):
     while b:
         a, b = b, a % b
