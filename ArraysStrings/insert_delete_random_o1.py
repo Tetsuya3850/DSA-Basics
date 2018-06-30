@@ -25,5 +25,4 @@ class RandomizedSet:
         return False
 
     def getRandom(self):
-        rand_i = random.randrange(len(self.elements))
-        return self.elements[rand_i]
+        return self.elements[random.randrange(len(self.elements))]

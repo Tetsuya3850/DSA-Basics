@@ -11,15 +11,13 @@ class HashTable:
         self.table = [None] * 101
 
     def hash(self, key):
-        # Generate hash from key.
-        # Time O(N), Space O(1), where N is the length of key.
+        # Time O(k), Space O(1), where k is the length of the key.
         hashed = 0
         for i in range(len(key)):
             hashed = (256 * hashed + ord(key[i])) % 101
         return hashed
 
     def add(self, key, value):
-        # Add key, value.
         # Time O(1), Space O(1), where N is the num of elements in hashtable.
         bucket = self.hash(key)
         if not self.table[bucket]:
@@ -30,7 +28,6 @@ class HashTable:
             self.table[bucket] = new_node
 
     def find(self, key):
-        # Find value from key.
         # Time O(1), Space O(1), where N is the num of elements in hashtable.
         bucket = self.hash(key)
         if not self.table[bucket]:
@@ -44,7 +41,6 @@ class HashTable:
             return False
 
     def delete(self, key):
-        # Delete key, value.
         # Time O(1), Space O(1), where N is the num of elements in hashtable.
         bucket = self.hash(key)
         if not self.table[bucket]:

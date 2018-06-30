@@ -1,7 +1,7 @@
 from collections import defaultdict
 
 
-def longest_subarray_same(A):
+def longest_subarray_same_frequency(A):
     # Time O(N), Space O(N), where N is the length of the array.
     diff_ar = [None] * len(A)
     diff = 0
@@ -28,5 +28,5 @@ def longest_subarray_same(A):
     return A[max_subar[0]+1: max_subar[1]+1]
 
 
-print(longest_subarray_same(
+print(longest_subarray_same_frequency(
     ['A', 'B', 'A', 'A', 'A', 'B', 'B', 'B', 'A', 'B', 'A', 'A', 'B', 'B']))

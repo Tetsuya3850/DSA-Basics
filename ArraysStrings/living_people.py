@@ -6,9 +6,7 @@ class Person:
 
 
 def most_alive(people):
-    # Given a list of people with their birth and death years, implement a method to compute the year with the most number of people alive. You may assume that all people were born between 1900 and 2000. If a person was alive during any portion of that year, they should be included in that year's count.
     # Time O(R+P), Space O(R), where R is the range of the table and P is the num of people.
-
     alive_table = [0] * 250
     for person in people:
         alive_table[person.birth - 1900] += 1

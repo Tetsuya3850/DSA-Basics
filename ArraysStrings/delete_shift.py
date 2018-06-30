@@ -1,6 +1,5 @@
 
 def array_key_delete(A, k):
-    # Delete all instances of int k from int array, in-place.
     # Time O(N), Space O(1), where N is the length of the array.
     write_index = 0
     for i in range(len(A)):
@@ -14,7 +13,6 @@ print(array_key_delete([3, 11, 2, 3, 3, 7, 13, 3], 3))
 
 
 def remove_duplicates(nums):
-    # Remove all duplicate ints and make the elements unique, in-place.
     # Time O(N), Space O(1), where N is the length of the array.
     if not nums:
         return

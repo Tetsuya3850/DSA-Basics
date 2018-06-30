@@ -3,12 +3,9 @@ import math
 
 
 def kth_dictionary(nums, k):
-    # Compute the kth permutation of array 1 to n under dictionary ordering.
-    # Time O(N^2), Space O(1), where N is the length of nums array.
-
+    # Time O(N^2), Space O(1), where N is the length of the array.
     def shift_right(nums, s, e):
-        # Move element in pos e to pos s and shift other elements to right by 1.
-        # Time O(N), Spae O(1), where N is the length of nums array.
+        # Time O(N), Spae O(1), where N is the length of the array.
         temp = nums[e]
         for i in reversed(range(s+1, e+1)):
             nums[i] = nums[i-1]
@@ -22,7 +19,7 @@ def kth_dictionary(nums, k):
         factorial = math.factorial(n-i-1)
         index = k // factorial
         shift_right(nums, i, i+index)
-        k = k % factorial
+        k %= factorial
     return nums
 
 

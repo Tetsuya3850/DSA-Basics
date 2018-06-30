@@ -1,9 +1,8 @@
 
 def majority_element(A):
-    # Given a positive integers array, find the majority element.
     # Time O(N), Space O(1), where N is the length of the array.
     candidate_majority_element = find_candidate_majority_element(A)
-    return candidate_majority_element if validate_candidate_element(A, candidate_majority_element) else -1
+    return candidate_majority_element if validate_candidate_element(A, candidate_majority_element) else False
 
 
 def find_candidate_majority_element(A):

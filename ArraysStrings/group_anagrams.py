@@ -3,7 +3,6 @@ from collections import defaultdict
 
 
 def group_anagrams(dictionary):
-    # A program that takes as input a set of words and returns groups of anagrams for those words.
     # Time O(NM), where N is the max length of string and M is the num of strings in dictionary.
     hashed_string_to_anagrams = defaultdict(list)
     for s in dictionary:
@@ -27,7 +26,7 @@ print(group_anagrams(dictionary))
 
 
 def group_anagrams_sort(A):
-    # Time O(NlogN + klogK), Space O(1), where N is the length of the array and k is the maximum length of each string.
+    # Time O(NlogN + MlogM), where N is the max length of string and M is the num of strings in dictionary.
     return sorted(A, key=lambda word: ''.join(sorted(word)))
 
 
