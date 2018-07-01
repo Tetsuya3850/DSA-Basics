@@ -1,5 +1,7 @@
+
 from collections import defaultdict
 from heapq import heappush, heappop
+
 
 class WeightedVertex:
     def __init__(self, name):
@@ -9,6 +11,7 @@ class WeightedVertex:
     def addEdge(self, vertex, weight):
         self.adjacent.append((vertex, weight))
         vertex.adjacent.append((self, weight))
+
 
 class WeightedGraph:
     def __init__(self):
@@ -29,9 +32,11 @@ class WeightedGraph:
             for neighbour, weight in vertex.adjacent:
                 next_distance = path_dist[vertex.name][0] + weight
                 if path_dist[neighbour.name][0] > next_distance:
-                    path_dist[neighbour.name] = (next_distance, path_dist[vertex.name][1] + [neighbour.name])
+                    path_dist[neighbour.name] = (
+                        next_distance, path_dist[vertex.name][1] + [neighbour.name])
                     heappush(heap, (next_distance, neighbour))
         return path_dist
+
 
 gr = WeightedGraph()
 a = WeightedVertex('A')
@@ -66,4 +71,4 @@ gr.addVertex(f)
 gr.addVertex(g)
 gr.addVertex(h)
 gr.addVertex(i)
-print (gr.dijkstra(a))
+print(gr.dijkstra(a))

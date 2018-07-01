@@ -1,5 +1,5 @@
+
 def common_ancestor(tree, node0, node1):
-    # Compute the lowest common ancestor of two nodes in a binary tree.
     # Time O(N), Space O(H), where N is the num of nodes in tree and H is the height of the tree.
     def common_ancestor_helper(tree, node0, node1):
         if not tree:

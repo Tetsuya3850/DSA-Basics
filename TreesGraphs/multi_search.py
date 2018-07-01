@@ -1,6 +1,5 @@
 
 def multi_search(b, T):
-    # Given a string b and an array of smaller strings T, design a method to search b for each smaller string in T.
     # O(kt + bk), where k is the length of the longest string in T and b is the length of the b and t is the length of array T.
     t = Trie()
     for s in T:

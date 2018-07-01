@@ -55,7 +55,7 @@ class Trie:
 
     def delete(self, key):
         # Time O(N), Space O(1), where N is the length of the key.
-        def delete_helper(curr_node, key, level, length):
+        def helper(curr_node, key, level, length):
             if curr_node:
                 curr_node.prefix -= 1
                 if level == length:
@@ -64,13 +64,14 @@ class Trie:
                     return curr_node.has_no_children()
                 else:
                     index = self.char_to_index(key[level])
-                    if delete_helper(curr_node.children[index], key, level+1, length):
+                    if helper(curr_node.children[index], key, level+1, length):
                         curr_node.children[index] = None
                         return not curr_node.end and curr_node.has_no_children()
             return False
+
         if len(key) == 0:
             return
-        delete_helper(self.root, key, 0, len(key))
+        helper(self.root, key, 0, len(key))
 
 
 my_trie = Trie()

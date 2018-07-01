@@ -8,7 +8,6 @@ class BinaryTreeNode:
 
 
 def successor_node(node):
-    # Find the in-order successor node in a bst. You may assume that each node has a link to its parent.
     # Time O(H), Space O(1), where H is the height of the tree.
     if node.right:
         next_node = node.right

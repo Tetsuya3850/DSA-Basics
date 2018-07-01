@@ -3,7 +3,6 @@ from collections import deque
 
 
 def largest_black_region(matrix):
-    # Design an algorithm for computing the black region that contains the most points.
     # Time O(WH) where W is the width and H is the height of matrix.
     visited = set()
     max_region = 0

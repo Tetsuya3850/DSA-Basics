@@ -74,14 +74,13 @@ class BinarySearchTree:
 
     def print_inorder(self):
         # Time O(N), Space O(1), where N is the num of nodes in bst.
-        def print_inorder_helper(root):
+        def helper(root):
             if not root:
                 return
-            print_inorder_helper(root.left)
-            print(root.data, end=' ')
-            print_inorder_helper(root.right)
-        print_inorder_helper(self.root)
-        print()
+            helper(root.left)
+            print(root.data)
+            helper(root.right)
+        helper(self.root)
 
     def get_min(self):
         # Time O(H), Space O(1), where H is the height of bst.

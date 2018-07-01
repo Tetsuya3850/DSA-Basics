@@ -31,6 +31,25 @@ def reconstruct_preorder_inorder(preorder, inorder):
     return helper(preorder, 0, len(preorder) - 1, inorder, 0, len(inorder) - 1, lookup)
 
 
+def reconstruct_preorder_bst(preorder):
+    def helper(preorder, start, end):
+        if start > end:
+            return None
+        root = preorder[start]
+        transition_point = start + 1
+        while transition_point < len(preorder) and preorder[transition_point] > preorder[start]:
+            transition_point += 1
+        root_node = TreeNode(root)
+        root_node.left = helper(preorder, start+1, transition_point-1)
+        root_node.right = helper(preorder, transition_point, end)
+        return root_node
+
+    return helper(preorder, 0, len(preorder)-1)
+
+
+print(reconstruct_preorder_bst([43, 23, 37, 29, 31, 41, 47, 53]).val)
+
+
 def reconstruct_preorder_marked(preorder):
     # Time O(N), where N is the num of nodes in tree.
     def helper(preorder_iter):
@@ -42,6 +61,7 @@ def reconstruct_preorder_marked(preorder):
         root.left = helper(preorder_iter)
         root.right = helper(preorder_iter)
         return root
+
     return helper(iter(preorder))
 
 
@@ -65,22 +85,3 @@ def valid_serialization(preorder):
     if next(it, None) != None:
         result = False
     return result
-
-
-def reconstruct_preorder_bst(preorder):
-    def helper(preorder, start, end):
-        if start > end:
-            return None
-        root = preorder[start]
-        transition_point = start + 1
-        while transition_point < len(preorder) and preorder[transition_point] > preorder[start]:
-            transition_point += 1
-        root_node = TreeNode(root)
-        root_node.left = helper(preorder, start+1, transition_point-1)
-        root_node.right = helper(preorder, transition_point, end)
-        return root_node
-
-    return helper(preorder, 0, len(preorder)-1)
-
-
-print(reconstruct_preorder_bst([43, 23, 37, 29, 31, 41, 47, 53]).val)

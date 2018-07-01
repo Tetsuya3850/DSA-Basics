@@ -1,7 +1,5 @@
 
-
 def is_subtree(t1, t2):
-    # Determine if T2 is a subtree of T1.
     # Time O(N), Space O(N), where N is the num of nodes in t1.
     preorder_t1 = get_preorder(t1)
     preorder_t2 = get_preorder(t2)

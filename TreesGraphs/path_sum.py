@@ -1,3 +1,4 @@
+
 from collections import defaultdict
 
 
@@ -16,21 +17,18 @@ def path_sum(root, target):
 
 def path_sum_optimal(root, target):
     # Time O(N), Space O(H), where W is the num of nodes in the tree and H is the height of the tree.
-    def helper(node, cur, target,  path_table):
+    def helper(node, cur, target, path_table):
         if not node:
             return 0
         cur += node.val
         diff = cur - target
         totalPaths = path_table[diff] if diff in path_table else 0
-
         if cur == target:
             totalPaths += 1
-
         path_table[cur] += 1
         totalPaths += helper(node.left, cur, target, path_table)
         totalPaths += helper(node.right, cur, target, path_table)
         path_table[cur] -= 1
-
         return totalPaths
 
     path_table = defaultdict(int)

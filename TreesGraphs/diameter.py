@@ -1,4 +1,5 @@
-def diameter_BTree(root):
+
+def diameter(root):
     # Time O(N), Space O(H), where N is the num of nodes in tree and H is the height of the tree.
     def helper(node):
         if not node:

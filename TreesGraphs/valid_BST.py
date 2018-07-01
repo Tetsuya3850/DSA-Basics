@@ -7,7 +7,6 @@ class BinaryTreeNode:
 
 
 def valid_BST(root):
-    # Check whether a binary tree is a binary search tree.
     # Time O(N), Space O(H), where W is the num of nodes in the tree and H is the height of the tree.
     def valid_BST_helper(root, mini, maxi):
         if root is None:

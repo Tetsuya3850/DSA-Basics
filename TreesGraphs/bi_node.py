@@ -13,6 +13,8 @@ class BiNode:
 
 def bi_node(root):
     # Time O(N), Space O(H), where N is the num of nodes and H is the height of the tree.
+    if not root:
+        return
     return convert(root).head
 
 

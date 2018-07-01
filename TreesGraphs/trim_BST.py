@@ -1,5 +1,5 @@
+
 def trim_BST(root, L, R):
-    # Given a bst and the lowest and highest boundaries, trim the tree so that all its elements lies in [L, R]
     # Time O(N), Space O(H), where N is the num of nodes and H is the height of the tree.
     if not root:
         return root

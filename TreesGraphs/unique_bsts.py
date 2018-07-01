@@ -10,7 +10,6 @@ class TreeNode:
 
 
 def num_trees(n):
-    # Given n, how many structurally unique BST's that store values 1 ... n?
     # Time O(N^2), Space O(N), where n is the given number.
     def helper(n, cache):
         if not n:
@@ -27,7 +26,6 @@ def num_trees(n):
 
 
 def generate_trees(n):
-    # Given an integer n, generate all structurally unique BST's that store values 1 ... n.
     def helper(nums):
         if not nums:
             return [None]

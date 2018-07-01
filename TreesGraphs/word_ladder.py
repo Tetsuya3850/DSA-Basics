@@ -27,4 +27,4 @@ def min_mutation(start, end, bank):
                             return count + 1
                         queue.append([next_gene, count + 1])
                         visited.add(next_gene)
-    return -1
+    return False

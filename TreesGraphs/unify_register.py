@@ -3,7 +3,6 @@ from collections import defaultdict
 
 
 def baby_names(name_frequency, same_names):
-    # Given two lists, one of names/frequencies and the other of pairs of equivalent names, write an algorithm to print a new list of the true frquency of each name.
     # Time O(B+P), where B is the num of babies and P is the pair of same names.
     g = Graph()
     for synonyms in same_names:
